@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shortcut Virus Remover — Windows PC Cleaner</title>
+  <title>Shortcut Virus Remover â€” Windows PC Cleaner</title>
   <meta name="description"
-    content="Free Windows tool to detect and remove the shortcut virus from USB drives and PC — restore hidden files, clean registry, kill malicious processes." />
+    content="Free Windows tool to detect and remove the shortcut virus from USB drives and PC â€” restore hidden files, clean registry, kill malicious processes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet" />
   <style>
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        DESIGN TOKENS & RESET
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     :root {
       --bg: #080b14;
       --surface: #0e1525;
@@ -59,9 +59,9 @@
       overflow-x: hidden;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        ANIMATED BACKGROUND
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .bg-grid {
       position: fixed;
       inset: 0;
@@ -121,9 +121,9 @@
       }
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        LAYOUT
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .container {
       position: relative;
       z-index: 1;
@@ -132,9 +132,9 @@
       padding: 40px 24px 80px;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        HERO HEADER
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .hero {
       text-align: center;
       padding: 60px 20px 40px;
@@ -214,9 +214,9 @@
       }
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        THREAT INDICATOR BAR
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .threat-bar {
       background: rgba(244, 63, 94, 0.08);
       border: 1px solid rgba(244, 63, 94, 0.25);
@@ -265,9 +265,9 @@
       font-size: 13px;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        GLASS CARDS
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .card {
       background: rgba(14, 21, 37, 0.85);
       backdrop-filter: blur(20px);
@@ -329,9 +329,9 @@
       margin-top: 2px;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        STEP CARDS (How to use)
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .steps {
       display: grid;
       gap: 16px;
@@ -393,9 +393,9 @@
       display: block;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        FEATURE GRID
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -435,9 +435,9 @@
       line-height: 1.5;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        DOWNLOAD SECTION
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .download-section {
       background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(6, 214, 160, 0.08));
       border: 1px solid rgba(59, 130, 246, 0.3);
@@ -540,9 +540,9 @@
       box-shadow: 0 4px 28px rgba(6, 214, 160, 0.45);
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        SCAN SIMULATOR (VISUAL DEMO)
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .scan-demo {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -695,9 +695,9 @@
       flex: 1;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        VIRUS INFO
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .virus-info-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -733,9 +733,9 @@
       display: block;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        TAGS
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -754,9 +754,9 @@
       letter-spacing: 0.04em;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        SECTION TITLES
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .section-label {
       font-size: 11px;
       font-weight: 700;
@@ -776,9 +776,9 @@
       background: var(--border);
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        FOOTER
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .footer {
       text-align: center;
       padding-top: 48px;
@@ -796,9 +796,9 @@
       text-decoration: underline;
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        RESPONSIVE
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     @media (max-width: 640px) {
       .container {
         padding: 24px 16px 60px;
@@ -813,9 +813,9 @@
       }
     }
 
-    /* ═══════════════════════════════════════════════════════
+    /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
        DISCLAIMER
-    ═══════════════════════════════════════════════════════ */
+    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
     .disclaimer {
       background: rgba(245, 158, 11, 0.06);
       border: 1px solid rgba(245, 158, 11, 0.2);
@@ -850,7 +850,7 @@
 
     <!-- THREAT ALERT -->
     <div class="threat-bar">
-      <div class="threat-icon">⚠️</div>
+      <div class="threat-icon">âš ï¸</div>
       <div class="threat-text">
         <strong>Shortcut Virus Detected on Millions of PCs</strong>
         <span>The USB shortcut virus (Win32/Autorun) hides your files and replaces them with .lnk shortcuts that spread
@@ -862,7 +862,7 @@
     <p class="section-label">What is the Shortcut Virus?</p>
     <div class="card" style="animation: fade-up 0.7s ease 0.35s both;">
       <div class="card-header">
-        <div class="card-icon red">🦠</div>
+        <div class="card-icon red">ðŸ¦ </div>
         <div>
           <div class="card-title">Understanding the Threat</div>
           <div class="card-subtitle">USB / Removable Drive Worm</div>
@@ -908,15 +908,15 @@
           <div class="dot d-yellow"></div>
           <div class="dot d-green"></div>
         </div>
-        <span>ShortcutVirusRemover — PowerShell Engine v2.0</span>
+        <span>ShortcutVirusRemover â€” PowerShell Engine v2.0</span>
       </div>
       <div class="scan-demo-body" id="scanLog">
         <div class="log-line info" style="animation-delay:0s">
-          <span class="ts">17:41:00</span><span class="msg">▶ Ready. Press "Run Demo Scan" to simulate cleanup.</span>
+          <span class="ts">17:41:00</span><span class="msg">â–¶ Ready. Press "Run Demo Scan" to simulate cleanup.</span>
         </div>
       </div>
       <div class="scan-controls">
-        <button class="scan-btn" id="scanBtn" onclick="runDemoScan()">▶ Run Demo Scan</button>
+        <button class="scan-btn" id="scanBtn" onclick="runDemoScan()">â–¶ Run Demo Scan</button>
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -945,10 +945,10 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h3>Right-click → Run as Administrator</h3>
+          <h3>Right-click â†’ Run as Administrator</h3>
           <p>Right-click <code>ShortcutVirusRemover.bat</code> and select <strong>"Run as administrator"</strong>. The
             tool auto-requests elevation, but explicit admin ensures full access.</p>
-          <span class="step-code">Right-click → Run as administrator</span>
+          <span class="step-code">Right-click â†’ Run as administrator</span>
         </div>
       </div>
       <div class="step">
@@ -956,7 +956,7 @@
         <div class="step-content">
           <h3>Wait for Cleanup to Finish</h3>
           <p>The tool will scan all drives, kill malicious processes, remove virus files, restore your hidden files, and
-            clean registry entries. This takes 30–120 seconds.</p>
+            clean registry entries. This takes 30â€“120 seconds.</p>
         </div>
       </div>
       <div class="step">
@@ -964,7 +964,8 @@
         <div class="step-content">
           <h3>Restart Your PC</h3>
           <p>After cleanup completes, restart your computer to finalize all changes. Check your Desktop for the
-            <code>ShortcutVirusRemover_Report.txt</code> log file.</p>
+            <code>ShortcutVirusRemover_Report.txt</code> log file.
+          </p>
         </div>
       </div>
     </div>
@@ -973,69 +974,70 @@
     <p class="section-label" style="margin-top: 32px;">What It Fixes</p>
     <div class="features-grid">
       <div class="feature-card">
-        <span class="feature-emoji">🔗</span>
+        <span class="feature-emoji">ðŸ”—</span>
         <h4>Removes Malicious .lnk Files</h4>
         <p>Deletes all shortcut files planted by the virus on drive roots and in folders.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">🚫</span>
+        <span class="feature-emoji">ðŸš«</span>
         <h4>Cleans autorun.inf</h4>
         <p>Removes autorun.inf files that cause the virus to auto-execute when drives are plugged in.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">👁</span>
+        <span class="feature-emoji">ðŸ‘</span>
         <h4>Restores Hidden Files</h4>
         <p>Uses <code>attrib -H -S</code> to make your hidden files and folders visible again.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">💀</span>
+        <span class="feature-emoji">ðŸ’€</span>
         <h4>Kills Malicious Processes</h4>
         <p>Terminates wscript.exe and cscript.exe instances running from Temp/AppData folders.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">🗝️</span>
+        <span class="feature-emoji">ðŸ—ï¸</span>
         <h4>Registry Cleanup</h4>
         <p>Removes virus entries from Windows startup registry keys (Run / RunOnce).</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">📋</span>
+        <span class="feature-emoji">ðŸ“‹</span>
         <h4>Full Cleanup Report</h4>
         <p>Saves a detailed timestamped log of every action taken to your Desktop.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">🔍</span>
+        <span class="feature-emoji">ðŸ”</span>
         <h4>Scans All Connected Drives</h4>
-        <p>Automatically discovers and scans every drive letter — C:, D:, USB drives — without configuration.</p>
+        <p>Automatically discovers and scans every drive letter â€” C:, D:, USB drives â€” without configuration.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">⚡</span>
+        <span class="feature-emoji">âš¡</span>
         <h4>One-Click Operation</h4>
         <p>No installation required. Double-click, approve UAC, and the tool does everything automatically.</p>
       </div>
       <div class="feature-card">
-        <span class="feature-emoji">🔎</span>
+        <span class="feature-emoji">ðŸ”Ž</span>
         <h4>Deep Scan Mode</h4>
-        <p>Safely inspects desktop.ini and shortcuts across all folders, deleting only those containing virus scripts.</p>
+        <p>Safely inspects desktop.ini and shortcuts across all folders, deleting only those containing virus scripts.
+        </p>
       </div>
     </div>
 
     <!-- DOWNLOAD -->
     <div class="download-section" style="margin-top: 32px;">
-      <h2>🛡️ Clean Your PC Now</h2>
+      <h2>ðŸ›¡ï¸ Clean Your PC Now</h2>
       <p>Free, open-source, no installation required. Works on Windows 7, 8, 10, and 11.</p>
       <div class="btn-group">
         <button class="btn btn-accent" id="downloadBat" onclick="downloadBat()">
-          ⬇ Download .BAT Launcher
+          â¬‡ Download .BAT Launcher
         </button>
         <button class="btn btn-primary" id="downloadPs1" onclick="downloadPs1()">
-          ⬇ Download engine.ps1
+          â¬‡ Download engine.ps1
         </button>
         <button class="btn btn-secondary" onclick="showManualInstructions()">
-          📋 Manual Instructions
+          ðŸ“‹ Manual Instructions
         </button>
       </div>
       <p style="margin-top: 20px; font-size: 12px; color: var(--text-dim);">
-        ✓ No internet required after download &nbsp;·&nbsp; ✓ Open source &nbsp;·&nbsp; ✓ No data collected
+        âœ“ No internet required after download &nbsp;Â·&nbsp; âœ“ Open source &nbsp;Â·&nbsp; âœ“ No data collected
       </p>
     </div>
 
@@ -1043,7 +1045,7 @@
     <div id="manualSection" style="display:none; margin-top: 20px;">
       <div class="card">
         <div class="card-header">
-          <div class="card-icon yellow">📋</div>
+          <div class="card-icon yellow">ðŸ“‹</div>
           <div>
             <div class="card-title">Manual PowerShell Instructions</div>
             <div class="card-subtitle">Run this in PowerShell as Administrator if you prefer</div>
@@ -1067,62 +1069,68 @@
 <span style="color:var(--primary2)">Get-Process</span> wscript,cscript -ErrorAction SilentlyContinue |
   <span style="color:var(--primary2)">Where-Object</span> { $_.Path -match 'Temp|AppData' } |
   <span style="color:var(--primary2)">Stop-Process</span> -Force</pre>
-        <button class="btn btn-secondary" style="margin-top:14px; font-size:13px;" onclick="copyManual()">📋 Copy to
+        <button class="btn btn-secondary" style="margin-top:14px; font-size:13px;" onclick="copyManual()">ðŸ“‹ Copy to
           Clipboard</button>
       </div>
     </div>
 
     <!-- DISCLAIMER & TROUBLESHOOTING -->
     <div class="disclaimer" style="margin-top: 20px;">
-      <strong>⚠ Important:</strong> This tool requires Administrator privileges to function correctly. It modifies file attributes and registry keys — always verify what actions are being taken by reviewing the script before running. While this tool is designed to be safe, using reputable antivirus software alongside it is always recommended.
+      <strong>âš  Important:</strong> This tool requires Administrator privileges to function correctly. It modifies file
+      attributes and registry keys â€” always verify what actions are being taken by reviewing the script before running.
+      While this tool is designed to be safe, using reputable antivirus software alongside it is always recommended.
     </div>
 
-    <div class="disclaimer" style="margin-top: 12px; background: rgba(59,130,246,0.06); border-color: rgba(59,130,246,0.2);">
-      <strong style="color: var(--primary2);">ℹ️ Troubleshooting "These files can't be opened":</strong>
-      If Windows Security blocks the downloaded <code>.bat</code> or <code>.ps1</code> file, it's because it was downloaded from the internet. 
+    <div class="disclaimer"
+      style="margin-top: 12px; background: rgba(59,130,246,0.06); border-color: rgba(59,130,246,0.2);">
+      <strong style="color: var(--primary2);">â„¹ï¸ Troubleshooting "These files can't be opened":</strong>
+      If Windows Security blocks the downloaded <code>.bat</code> or <code>.ps1</code> file, it's because it was
+      downloaded from the internet.
       <br><br>
-      <strong>Fix:</strong> Right-click the downloaded file ➔ Select <strong>Properties</strong> ➔ Check the <strong>Unblock</strong> box at the bottom of the General tab ➔ Click <strong>Apply</strong> and try running it again.
+      <strong>Fix:</strong> Right-click the downloaded file âž” Select <strong>Properties</strong> âž” Check the
+      <strong>Unblock</strong> box at the bottom of the General tab âž” Click <strong>Apply</strong> and try running it
+      again.
     </div>
 
     <!-- FOOTER -->
     <div class="footer">
-      <p>Shortcut Virus Remover &copy; 2026 &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; Windows 7/8/10/11</p>
-      <p style="margin-top:6px;">Made with ❤️ to help fight the most common USB malware on Windows</p>
+      <p>Shortcut Virus Remover &copy; 2026 &nbsp;Â·&nbsp; Open Source &nbsp;Â·&nbsp; Windows 7/8/10/11</p>
+      <p style="margin-top:6px;">Made with â¤ï¸ to help fight the most common USB malware on Windows</p>
     </div>
 
   </div>
 
   <script>
-    // ═══════════════════════════════════════════════════════
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     //  DEMO SCAN SIMULATOR
-    // ═══════════════════════════════════════════════════════
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     const demoLog = [
-      { delay: 300, type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0  ══╗' },
-      { delay: 600, type: 'info', msg: '▶  STEP 1 — Discovering Drives' },
-      { delay: 900, type: 'ok', msg: '  ℹ  Found drives: C:\\ D:\\ E:\\' },
-      { delay: 1300, type: 'info', msg: '▶  STEP 2 — Killing Suspicious Processes' },
-      { delay: 1600, type: 'err', msg: '  ✗  REMOVED: wscript.exe (PID 4892) — C:\\Users\\User\\AppData\\Roaming\\host.vbs' },
-      { delay: 1900, type: 'ok', msg: '  ✔  Process scan complete' },
-      { delay: 2300, type: 'info', msg: '▶  STEP 3 — Removing Malicious .lnk & Autorun Files' },
-      { delay: 2700, type: 'err', msg: '  ✗  REMOVED: E:\\autorun.inf' },
-      { delay: 3000, type: 'err', msg: '  ✗  REMOVED: E:\\Documents.lnk' },
-      { delay: 3300, type: 'err', msg: '  ✗  REMOVED: E:\\Music.lnk' },
-      { delay: 3600, type: 'err', msg: '  ✗  REMOVED: E:\\Videos.lnk' },
-      { delay: 3900, type: 'err', msg: '  ✗  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs' },
-      { delay: 4200, type: 'ok', msg: '  ✔  File scan complete' },
-      { delay: 4600, type: 'info', msg: '▶  STEP 4 — Restoring Hidden Files & Folders' },
-      { delay: 5000, type: 'ok', msg: '  ✔  attrib -H -S /S /D on C:\\ — done' },
-      { delay: 5400, type: 'ok', msg: '  ✔  attrib -H -S /S /D on D:\\ — done' },
-      { delay: 5700, type: 'ok', msg: '  ✔  attrib -H -S /S /D on E:\\ — done' },
-      { delay: 6100, type: 'info', msg: '▶  STEP 5 — Cleaning Registry Startup Entries' },
-      { delay: 6500, type: 'err', msg: '  ✗  REMOVED: HKCU\\...\\Run\\HostService = ravmon.vbs' },
-      { delay: 6800, type: 'ok', msg: '  ✔  Registry clean complete' },
-      { delay: 7200, type: 'head', msg: '═══════════════════════════════════════' },
+      { delay: 300, type: 'head', msg: 'â•”â•â• SHORTCUT VIRUS REMOVER  v2.0  â•â•â•—' },
+      { delay: 600, type: 'info', msg: 'â–¶  STEP 1 â€” Discovering Drives' },
+      { delay: 900, type: 'ok', msg: '  â„¹  Found drives: C:\\ D:\\ E:\\' },
+      { delay: 1300, type: 'info', msg: 'â–¶  STEP 2 â€” Killing Suspicious Processes' },
+      { delay: 1600, type: 'err', msg: '  âœ—  REMOVED: wscript.exe (PID 4892) â€” C:\\Users\\User\\AppData\\Roaming\\host.vbs' },
+      { delay: 1900, type: 'ok', msg: '  âœ”  Process scan complete' },
+      { delay: 2300, type: 'info', msg: 'â–¶  STEP 3 â€” Removing Malicious .lnk & Autorun Files' },
+      { delay: 2700, type: 'err', msg: '  âœ—  REMOVED: E:\\autorun.inf' },
+      { delay: 3000, type: 'err', msg: '  âœ—  REMOVED: E:\\Documents.lnk' },
+      { delay: 3300, type: 'err', msg: '  âœ—  REMOVED: E:\\Music.lnk' },
+      { delay: 3600, type: 'err', msg: '  âœ—  REMOVED: E:\\Videos.lnk' },
+      { delay: 3900, type: 'err', msg: '  âœ—  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs' },
+      { delay: 4200, type: 'ok', msg: '  âœ”  File scan complete' },
+      { delay: 4600, type: 'info', msg: 'â–¶  STEP 4 â€” Restoring Hidden Files & Folders' },
+      { delay: 5000, type: 'ok', msg: '  âœ”  attrib -H -S /S /D on C:\\ â€” done' },
+      { delay: 5400, type: 'ok', msg: '  âœ”  attrib -H -S /S /D on D:\\ â€” done' },
+      { delay: 5700, type: 'ok', msg: '  âœ”  attrib -H -S /S /D on E:\\ â€” done' },
+      { delay: 6100, type: 'info', msg: 'â–¶  STEP 5 â€” Cleaning Registry Startup Entries' },
+      { delay: 6500, type: 'err', msg: '  âœ—  REMOVED: HKCU\\...\\Run\\HostService = ravmon.vbs' },
+      { delay: 6800, type: 'ok', msg: '  âœ”  Registry clean complete' },
+      { delay: 7200, type: 'head', msg: 'â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•' },
       { delay: 7500, type: 'ok', msg: '  Files Removed    : 6' },
       { delay: 7700, type: 'ok', msg: '  Drives Restored  : 3' },
       { delay: 7900, type: 'ok', msg: '  Processes Killed : 1' },
       { delay: 8100, type: 'ok', msg: '  Registry Cleaned : 1' },
-      { delay: 8400, type: 'head', msg: '  ✨  CLEANUP COMPLETE — Please Restart Your PC' },
+      { delay: 8400, type: 'head', msg: '  âœ¨  CLEANUP COMPLETE â€” Please Restart Your PC' },
     ];
 
     let scanning = false;
@@ -1137,7 +1145,7 @@
       const status = document.getElementById('scanStatus');
 
       btn.disabled = true;
-      btn.textContent = '⏳ Scanning...';
+      btn.textContent = 'â³ Scanning...';
       logEl.innerHTML = '';
       prog.style.width = '0%';
       status.textContent = 'Scanning...';
@@ -1165,7 +1173,7 @@
           logEl.scrollTop = logEl.scrollHeight;
 
           if (i === total - 1) {
-            btn.textContent = '▶ Run Again';
+            btn.textContent = 'â–¶ Run Again';
             btn.disabled = false;
             scanning = false;
           }
@@ -1173,9 +1181,9 @@
       });
     }
 
-    // ═══════════════════════════════════════════════════════
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     //  DOWNLOAD FUNCTIONS
-    // ═══════════════════════════════════════════════════════
+    // â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
     function downloadBat() {
       const content = `@echo off
 title Shortcut Virus Remover
@@ -1196,17 +1204,20 @@ echo.
 timeout /t 2 /nobreak >nul
 powershell.exe -ExecutionPolicy Bypass -NoProfile -File "%~dp0engine.ps1"
 echo.
-echo  Done! Check Desktop for ShortcutVirusRemover_Report.txt
+echo  Done! You may close this window.
 pause`;
       downloadFile('ShortcutVirusRemover.bat', content, 'text/plain');
     }
 
     function downloadPs1() {
-      const url = 'engine.ps1';
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'engine.ps1';
-      a.click();
+      const base64 = `ZnVuY3Rpb24gVGVzdC1BZG1pbmlzdHJhdG9yIHsgIAogICAgJHVzZXIgPSBbU2VjdXJpdHkuUHJpbmNpcGFsLldpbmRvd3NJZGVudGl0eV06OkdldEN1cnJlbnQoKQogICAgKE5ldy1PYmplY3QgU2VjdXJpdHkuUHJpbmNpcGFsLldpbmRvd3NQcmluY2lwYWwgJHVzZXIpLklzSW5Sb2xlKFtTZWN1cml0eS5QcmluY2lwYWwuV2luZG93c0J1aWx0aW5Sb2xlXTo6QWRtaW5pc3RyYXRvcikgIAp9CgppZiAoLW5vdCAoVGVzdC1BZG1pbmlzdHJhdG9yKSkgewogICAgV3JpdGUtSG9zdCAiUmVzdGFydGluZyBzY3JpcHQgd2l0aCBBZG1pbmlzdHJhdGl2ZSBwcml2aWxlZ2VzLi4uIgogICAgU3RhcnQtUHJvY2VzcyBwb3dlcnNoZWxsLmV4ZSAtQXJndW1lbnRMaXN0ICItTm9Qcm9maWxlIC1FeGVjdXRpb25Qb2xpY3kgQnlwYXNzIC1GaWxlIGAiJFBTQ29tbWFuZFBhdGhgIiIgLVZlcmIgUnVuQXMKICAgIGV4aXQKfQoKZnVuY3Rpb24gQ2xlYW4tUEMgewogICAgV3JpdGUtSG9zdCAiYG4tLS0gQ2xlYW5pbmcgUEMgLS0tIiAtRm9yZWdyb3VuZENvbG9yIEN5YW4KICAgICMgMS4gS2lsbCB3c2NyaXB0LmV4ZQogICAgV3JpdGUtSG9zdCAiS2lsbGluZyB3c2NyaXB0LmV4ZSBhbmQgb3RoZXIgc3VzcGljaW91cyBwcm9jZXNzZXMuLi4iCiAgICBHZXQtUHJvY2VzcyB3c2NyaXB0LCBjc2NyaXB0IC1FcnJvckFjdGlvbiBTaWxlbnRseUNvbnRpbnVlIHwgU3RvcC1Qcm9jZXNzIC1Gb3JjZQogICAgCiAgICAjIDIuIEZpeCBSZWdpc3RyeQogICAgV3JpdGUtSG9zdCAiUmVzdG9yaW5nIFJlZ2lzdHJ5IFBvbGljaWVzIChUYXNrIE1hbmFnZXIsIEhpZGRlbiBGaWxlcykuLi4iCiAgICAkcmVnUGF0aHMgPSBAKAogICAgICAgICJIS0NVOlxTb2Z0d2FyZVxNaWNyb3NvZnRcV2luZG93c1xDdXJyZW50VmVyc2lvblxQb2xpY2llc1xTeXN0ZW0iLAogICAgICAgICJIS0NVOlxTb2Z0d2FyZVxNaWNyb3NvZnRcV2luZG93c1xDdXJyZW50VmVyc2lvblxQb2xpY2llc1xFeHBsb3JlciIKICAgICkKICAgIGZvcmVhY2ggKCRwYXRoIGluICRyZWdQYXRocykgewogICAgICAgIGlmIChUZXN0LVBhdGggJHBhdGgpIHsKICAgICAgICAgICAgUmVtb3ZlLUl0ZW1Qcm9wZXJ0eSAtUGF0aCAkcGF0aCAtTmFtZSAiRGlzYWJsZVRhc2tNZ3IiIC1FcnJvckFjdGlvbiBTaWxlbnRseUNvbnRpbnVlCiAgICAgICAgICAgIFJlbW92ZS1JdGVtUHJvcGVydHkgLVBhdGggJHBhdGggLU5hbWUgIkRpc2FibGVSZWdpc3RyeVRvb2xzIiAtRXJyb3JBY3Rpb24gU2lsZW50bHlDb250aW51ZQogICAgICAgIH0KICAgIH0KICAgIAogICAgIyBSZXN0b3JlIGhpZGRlbiBmaWxlIHZpc2liaWxpdHkKICAgIFNldC1JdGVtUHJvcGVydHkgLVBhdGggIkhLQ1U6XFNvZnR3YXJlXE1pY3Jvc29mdFxXaW5kb3dzXEN1cnJlbnRWZXJzaW9uXEV4cGxvcmVyXEFkdmFuY2VkIiAtTmFtZSAiSGlkZGVuIiAtVmFsdWUgMSAtRXJyb3JBY3Rpb24gU2lsZW50bHlDb250aW51ZQogICAgU2V0LUl0ZW1Qcm9wZXJ0eSAtUGF0aCAiSEtDVTpcU29mdHdhcmVcTWljcm9zb2Z0XFdpbmRvd3NcQ3VycmVudFZlcnNpb25cRXhwbG9yZXJcQWR2YW5jZWQiIC1OYW1lICJTaG93U3VwZXJIaWRkZW4iIC1WYWx1ZSAxIC1FcnJvckFjdGlvbiBTaWxlbnRseUNvbnRpbnVlCiAgICAKICAgICMgMy4gQ2xlYW4gU3RhcnR1cAogICAgV3JpdGUtSG9zdCAiU2Nhbm5pbmcgU3RhcnR1cCBmb2xkZXJzLi4uIgogICAgJHN0YXJ0dXBQYXRocyA9IEAoCiAgICAgICAgIiRlbnY6QVBQREFUQVxNaWNyb3NvZnRcV2luZG93c1xTdGFydCBNZW51XFByb2dyYW1zXFN0YXJ0dXAiLAogICAgICAgICIkZW52OlByb2dyYW1EYXRhXE1pY3Jvc29mdFxXaW5kb3dzXFN0YXJ0IE1lbnVcUHJvZ3JhbXNcU3RhcnR1cCIKICAgICkKICAgIGZvcmVhY2ggKCRwYXRoIGluICRzdGFydHVwUGF0aHMpIHsKICAgICAgICBpZiAoVGVzdC1QYXRoICRwYXRoKSB7CiAgICAgICAgICAgICRiYWRGaWxlcyA9IEdldC1DaGlsZEl0ZW0gLVBhdGggJHBhdGggLUluY2x1ZGUgKi52YnMsICoudmJlLCAqLmpzLCAqLndzZiwgKi5pbmkgLVJlY3Vyc2UgLUZvcmNlCiAgICAgICAgICAgIGZvcmVhY2ggKCRmaWxlIGluICRiYWRGaWxlcykgewogICAgICAgICAgICAgICAgV3JpdGUtSG9zdCAiUmVtb3ZpbmcgbWFsaWNpb3VzIHN0YXJ0dXAgZmlsZTogJCgkZmlsZS5OYW1lKSIgLUZvcmVncm91bmRDb2xvciBZZWxsb3cKICAgICAgICAgICAgICAgIFJlbW92ZS1JdGVtIC1MaXRlcmFsUGF0aCAkZmlsZS5GdWxsTmFtZSAtRm9yY2UKICAgICAgICAgICAgfQogICAgICAgIH0KICAgIH0KICAgIAogICAgIyA0LiBDbGVhbiBSdW4gS2V5cwogICAgV3JpdGUtSG9zdCAiU2Nhbm5pbmcgUmVnaXN0cnkgUnVuIEtleXMuLi4iCiAgICAkcnVuS2V5cyA9IEAoCiAgICAgICAgIkhLQ1U6XFNvZnR3YXJlXE1pY3Jvc29mdFxXaW5kb3dzXEN1cnJlbnRWZXJzaW9uXFJ1biIsCiAgICAgICAgIkhLTE06XFNvZnR3YXJlXE1pY3Jvc29mdFxXaW5kb3dzXEN1cnJlbnRWZXJzaW9uXFJ1biIKICAgICkKICAgIGZvcmVhY2ggKCRrZXkgaW4gJHJ1bktleXMpIHsKICAgICAgICBpZiAoVGVzdC1QYXRoICRrZXkpIHsKICAgICAgICAgICAgJGVudHJpZXMgPSBHZXQtSXRlbVByb3BlcnR5IC1QYXRoICRrZXkKICAgICAgICAgICAgZm9yZWFjaCAoJHByb3AgaW4gJGVudHJpZXMucHNvYmplY3QucHJvcGVydGllcykgewogICAgICAgICAgICAgICAgaWYgKCRwcm9wLlZhbHVlIC1tYXRjaCAnXC52YnN8XC5qc3xcLndzZnx3c2NyaXB0JykgewogICAgICAgICAgICAgICAgICAgIFdyaXRlLUhvc3QgIlJlbW92aW5nIG1hbGljaW91cyBSdW4ga2V5OiAkKCRwcm9wLk5hbWUpIiAtRm9yZWdyb3VuZENvbG9yIFllbGxvdwogICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICMgVHJ5IHRvIGV4dHJhY3QgZmlsZSBwYXRoIGFuZCBkZWxldGUgdGhlIHBheWxvYWQgZnJvbSBEcml2ZSBDOgogICAgICAgICAgICAgICAgICAgICR2YWwgPSAkcHJvcC5WYWx1ZQogICAgICAgICAgICAgICAgICAgICRmaWxlUGF0aCA9ICRudWxsCiAgICAgICAgICAgICAgICAgICAgaWYgKCR2YWwgLW1hdGNoICcoW2EtekEtWl06XFxbXlwiXStcLig/OnZic3xqc3x3c2Z8dmJlfGJhdHxjbWR8ZXhlKSknKSB7CiAgICAgICAgICAgICAgICAgICAgICAgICRmaWxlUGF0aCA9ICRtYXRjaGVzWzFdCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGVsc2VpZiAoJHZhbCAtbWF0Y2ggJyIoW14iXStcLig/OnZic3xqc3x3c2Z8dmJlfGJhdHxjbWR8ZXhlKSkiJykgewogICAgICAgICAgICAgICAgICAgICAgICAkZmlsZVBhdGggPSAkbWF0Y2hlc1sxXQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICBpZiAoJGZpbGVQYXRoIC1hbmQgKFRlc3QtUGF0aCAkZmlsZVBhdGgpKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIFdyaXRlLUhvc3QgIlJlbW92aW5nIG1hbGljaW91cyBwYXlsb2FkIGZpbGU6ICRmaWxlUGF0aCIgLUZvcmVncm91bmRDb2xvciBZZWxsb3cKICAgICAgICAgICAgICAgICAgICAgICAgUmVtb3ZlLUl0ZW0gLUxpdGVyYWxQYXRoICRmaWxlUGF0aCAtRm9yY2UgLUVycm9yQWN0aW9uIFNpbGVudGx5Q29udGludWUKICAgICAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgIFJlbW92ZS1JdGVtUHJvcGVydHkgLVBhdGggJGtleSAtTmFtZSAkcHJvcC5OYW1lIC1Gb3JjZQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgfQogICAgfQogICAgV3JpdGUtSG9zdCAiUEMgQ2xlYW51cCBDb21wbGV0ZSEiIC1Gb3JlZ3JvdW5kQ29sb3IgR3JlZW4KfQoKZnVuY3Rpb24gQ2xlYW4tRHJpdmUgewogICAgcGFyYW0oW3N0cmluZ10kRHJpdmVMZXR0ZXIpCiAgICAKICAgICRkcml2ZSA9ICIkKCREcml2ZUxldHRlcik6XCIKICAgIGlmICgtbm90IChUZXN0LVBhdGggJGRyaXZlKSkgewogICAgICAgIFdyaXRlLUhvc3QgIkRyaXZlICRkcml2ZSBub3QgZm91bmQhIiAtRm9yZWdyb3VuZENvbG9yIFJlZAogICAgICAgIHJldHVybgogICAgfQogICAgCiAgICAkaXNTeXN0ZW1Ecml2ZSA9ICgkZHJpdmUgLWVxICIkZW52OlN5c3RlbURyaXZlXCIpCiAgICAKICAgIFdyaXRlLUhvc3QgImBuLS0tIENsZWFuaW5nIERyaXZlICRkcml2ZSAtLS0iIC1Gb3JlZ3JvdW5kQ29sb3IgQ3lhbgogICAgV3JpdGUtSG9zdCAiU3RlcCAxOiBSZW1vdmluZyBoaWRkZW4gYXR0cmlidXRlcy4uLiIKICAgIAogICAgaWYgKCRpc1N5c3RlbURyaXZlKSB7CiAgICAgICAgV3JpdGUtSG9zdCAiU3lzdGVtIGRyaXZlIGRldGVjdGVkLiBTa2lwcGluZyByZWN1cnNpdmUgYXR0cmlidXRlIHJlc2V0IHRvIHByb3RlY3QgT1MgZmlsZXMuIiAtRm9yZWdyb3VuZENvbG9yIFllbGxvdwogICAgfQogICAgZWxzZSB7CiAgICAgICAgYXR0cmliIC1oIC1yIC1zIC9zIC9kICIkZHJpdmVcKi4qIgogICAgfQogICAgCiAgICBXcml0ZS1Ib3N0ICJTdGVwIDI6IERlbGV0aW5nIG1hbGljaW91cyBmaWxlcy4uLiIKICAgICRiYWRFeHRlbnNpb25zID0gQCgiKi52YnMiLCAiKi5sbmsiLCAiKi5pbmkiLCAiKi53c2YiKQogICAgZm9yZWFjaCAoJGV4dCBpbiAkYmFkRXh0ZW5zaW9ucykgewogICAgICAgIEdldC1DaGlsZEl0ZW0gLVBhdGggJGRyaXZlIC1GaWx0ZXIgJGV4dCAtRm9yY2UgfCBGb3JFYWNoLU9iamVjdCB7CiAgICAgICAgICAgICMgRE8gTk9UIGRlbGV0ZSBkZXNrdG9wLmluaSBpZiBpdCdzIHRoZSBzeXN0ZW0gZHJpdmUKICAgICAgICAgICAgaWYgKCRpc1N5c3RlbURyaXZlIC1hbmQgJF8uTmFtZSAtbWF0Y2ggIig/aSlkZXNrdG9wXC5pbmkiKSB7CiAgICAgICAgICAgICAgICByZXR1cm4KICAgICAgICAgICAgfQogICAgICAgICAgICBXcml0ZS1Ib3N0ICJSZW1vdmVkICQoJF8uTmFtZSkiIC1Gb3JlZ3JvdW5kQ29sb3IgWWVsbG93CiAgICAgICAgICAgIFJlbW92ZS1JdGVtIC1MaXRlcmFsUGF0aCAkXy5GdWxsTmFtZSAtRm9yY2UKICAgICAgICB9CiAgICB9CiAgICAKICAgICR2aXJ1c0V4ZSA9IEpvaW4tUGF0aCAkZHJpdmUgIlVTQiBEaXNrLmV4ZSIKICAgIGlmIChUZXN0LVBhdGggJHZpcnVzRXhlKSB7CiAgICAgICAgUmVtb3ZlLUl0ZW0gLVBhdGggJHZpcnVzRXhlIC1Gb3JjZQogICAgICAgIFdyaXRlLUhvc3QgIlJlbW92ZWQgVVNCIERpc2suZXhlIiAtRm9yZWdyb3VuZENvbG9yIFllbGxvdwogICAgfQogICAgCiAgICBXcml0ZS1Ib3N0ICJTdGVwIDM6IE1vdmluZyBmaWxlcyBvdXQgb2YgaGlkZGVuIG5hbWVsZXNzIGZvbGRlcnMuLi4iCiAgICAkcm9vdCA9IFtTeXN0ZW0uSU8uRGlyZWN0b3J5SW5mb10kZHJpdmUKICAgICRkaXJzID0gJHJvb3QuR2V0RGlyZWN0b3JpZXMoKSB8IFdoZXJlLU9iamVjdCB7ICRfLk5hbWUgLW5lICdTeXN0ZW0gVm9sdW1lIEluZm9ybWF0aW9uJyAtYW5kICRfLk5hbWUgLW5vdG1hdGNoICdbYS16QS1aMC05XScgfQogICAgCiAgICBmb3JlYWNoICgkZCBpbiAkZGlycykgeyAKICAgICAgICBXcml0ZS1Ib3N0ICJSZXN0b3JpbmcgY29udGVudHMgZnJvbSBoaWRkZW4gZm9sZGVyICckKCRkLk5hbWUpJyIKICAgICAgICAkZC5HZXRGaWxlcygpIHwgRm9yRWFjaC1PYmplY3QgeyBNb3ZlLUl0ZW0gLUxpdGVyYWxQYXRoICRfLkZ1bGxOYW1lIC1EZXN0aW5hdGlvbiAkZHJpdmUgLUZvcmNlIH0KICAgICAgICAkZC5HZXREaXJlY3RvcmllcygpIHwgRm9yRWFjaC1PYmplY3QgeyBNb3ZlLUl0ZW0gLUxpdGVyYWxQYXRoICRfLkZ1bGxOYW1lIC1EZXN0aW5hdGlvbiAkZHJpdmUgLUZvcmNlIH0KICAgICAgICBSZW1vdmUtSXRlbSAtTGl0ZXJhbFBhdGggJGQuRnVsbE5hbWUgLUZvcmNlIC1SZWN1cnNlIC1FcnJvckFjdGlvbiBTaWxlbnRseUNvbnRpbnVlCiAgICB9CiAgICAKICAgIFdyaXRlLUhvc3QgIkRyaXZlICRkcml2ZSBDbGVhbnVwIENvbXBsZXRlISIgLUZvcmVncm91bmRDb2xvciBHcmVlbgp9CgpmdW5jdGlvbiBDbGVhbi1EZWVwU2NhbiB7CiAgICBwYXJhbShbc3RyaW5nXSREcml2ZUxldHRlcikKICAgIAogICAgJGRyaXZlID0gIiQoJERyaXZlTGV0dGVyKTpcIgogICAgaWYgKC1ub3QgKFRlc3QtUGF0aCAkZHJpdmUpKSB7CiAgICAgICAgV3JpdGUtSG9zdCAiRHJpdmUgJGRyaXZlIG5vdCBmb3VuZCEiIC1Gb3JlZ3JvdW5kQ29sb3IgUmVkCiAgICAgICAgcmV0dXJuCiAgICB9CiAgICAKICAgIFdyaXRlLUhvc3QgImBuLS0tIERlZXAgU2Nhbm5pbmcgRHJpdmUgJGRyaXZlIC0tLSIgLUZvcmVncm91bmRDb2xvciBDeWFuCiAgICBXcml0ZS1Ib3N0ICJTYWZlbHkgaW5zcGVjdGluZyBhbGwgZm9sZGVycyBmb3IgbWFsaWNpb3VzIGRlc2t0b3AuaW5pIGFuZCAubG5rIHNob3J0Y3V0cy4iCiAgICBXcml0ZS1Ib3N0ICJUaGlzIG1heSB0YWtlIGEgd2hpbGUgZGVwZW5kaW5nIG9uIGRyaXZlIHNpemUuLi4iIC1Gb3JlZ3JvdW5kQ29sb3IgWWVsbG93CiAgICAKICAgICRzaCA9IE5ldy1PYmplY3QgLUNvbU9iamVjdCBXU2NyaXB0LlNoZWxsCiAgICAKICAgIEdldC1DaGlsZEl0ZW0gLVBhdGggJGRyaXZlIC1JbmNsdWRlICoubG5rLCBkZXNrdG9wLmluaSAtUmVjdXJzZSAtRm9yY2UgLUVycm9yQWN0aW9uIFNpbGVudGx5Q29udGludWUgfCBGb3JFYWNoLU9iamVjdCB7CiAgICAgICAgJGZpbGUgPSAkXwogICAgICAgIHRyeSB7CiAgICAgICAgICAgIGlmICgkZmlsZS5FeHRlbnNpb24gLWVxICcubG5rJykgewogICAgICAgICAgICAgICAgJGxuayA9ICRzaC5DcmVhdGVTaG9ydGN1dCgkZmlsZS5GdWxsTmFtZSkKICAgICAgICAgICAgICAgICMgSWYgc2hvcnRjdXQgbGF1bmNoZXMgYSBzY3JpcHQgb3IgY29tbWFuZCBwcm9tcHQsIGl0J3MgbGlrZWx5IG1hbGljaW91cwogICAgICAgICAgICAgICAgaWYgKCRsbmsuVGFyZ2V0UGF0aCAtbWF0Y2ggJyg/aSl3c2NyaXB0XC5leGV8Y3NjcmlwdFwuZXhlfGNtZFwuZXhlfFwudmJzfFwud3NmfFwudmJlfFwuanMnKSB7CiAgICAgICAgICAgICAgICAgICAgV3JpdGUtSG9zdCAiUmVtb3ZpbmcgbWFsaWNpb3VzIHNob3J0Y3V0OiAkKCRmaWxlLkZ1bGxOYW1lKSIgLUZvcmVncm91bmRDb2xvciBSZWQKICAgICAgICAgICAgICAgICAgICBSZW1vdmUtSXRlbSAtTGl0ZXJhbFBhdGggJGZpbGUuRnVsbE5hbWUgLUZvcmNlCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxzZWlmICgkZmlsZS5OYW1lIC1tYXRjaCAnKD9pKWRlc2t0b3BcLmluaScpIHsKICAgICAgICAgICAgICAgICMgUmVhZCBjb250ZW50IHRvIGNoZWNrIGZvciBtYWxpY2lvdXMgc2NyaXB0IHRyaWdnZXJzCiAgICAgICAgICAgICAgICAkY29udGVudCA9IEdldC1Db250ZW50IC1MaXRlcmFsUGF0aCAkZmlsZS5GdWxsTmFtZSAtUmF3IC1FcnJvckFjdGlvbiBTaWxlbnRseUNvbnRpbnVlCiAgICAgICAgICAgICAgICBpZiAoJGNvbnRlbnQgLW1hdGNoICcoP2kpd3NjcmlwdHxjc2NyaXB0fFwudmJzfFwud3NmfFwudmJlfFwuanMnKSB7CiAgICAgICAgICAgICAgICAgICAgV3JpdGUtSG9zdCAiUmVtb3ZpbmcgaW5mZWN0ZWQgZGVza3RvcC5pbmk6ICQoJGZpbGUuRnVsbE5hbWUpIiAtRm9yZWdyb3VuZENvbG9yIFJlZAogICAgICAgICAgICAgICAgICAgIFJlbW92ZS1JdGVtIC1MaXRlcmFsUGF0aCAkZmlsZS5GdWxsTmFtZSAtRm9yY2UKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0gY2F0Y2ggewogICAgICAgICAgICAjIFNraXAgaWYgYWNjZXNzIGRlbmllZCBvciBsb2NrZWQKICAgICAgICB9CiAgICB9CiAgICAKICAgIFdyaXRlLUhvc3QgIkRlZXAgU2NhbiBDb21wbGV0ZSEiIC1Gb3JlZ3JvdW5kQ29sb3IgR3JlZW4KfQoKd2hpbGUgKCR0cnVlKSB7CiAgICBDbGVhci1Ib3N0CiAgICBXcml0ZS1Ib3N0ICI9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PSIgLUZvcmVncm91bmRDb2xvciBDeWFuCiAgICBXcml0ZS1Ib3N0ICIgICAgU0hPUlRDVVQgVklSVVMgUkVNT1ZFUiBWMi4wICAgICAgICIgLUZvcmVncm91bmRDb2xvciBZZWxsb3cKICAgIFdyaXRlLUhvc3QgIj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IiAtRm9yZWdyb3VuZENvbG9yIEN5YW4KICAgIFdyaXRlLUhvc3QgIjEuIENsZWFuIExvY2FsIFBDIChSZWdpc3RyeSwgU3RhcnR1cCwgUHJvY2Vzc2VzKSIKICAgIFdyaXRlLUhvc3QgIjIuIENsZWFuIGEgVVNCIERyaXZlIgogICAgV3JpdGUtSG9zdCAiMy4gQ2xlYW4gQm90aCAoUEMgKyBVU0IpIgogICAgV3JpdGUtSG9zdCAiNC4gRGVlcCBTY2FuIGEgRHJpdmUgKFJlY3Vyc2l2ZWx5IGluc3BlY3QgZGVza3RvcC5pbmkgJiBzaG9ydGN1dHMpIgogICAgV3JpdGUtSG9zdCAiNS4gRXhpdCIKICAgIFdyaXRlLUhvc3QgIj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09IiAtRm9yZWdyb3VuZENvbG9yIEN5YW4KICAgIAogICAgJGNob2ljZSA9IFJlYWQtSG9zdCAiU2VsZWN0IGFuIG9wdGlvbiAoMS01KSIKICAgIAogICAgc3dpdGNoICgkY2hvaWNlKSB7CiAgICAgICAgIjEiIHsKICAgICAgICAgICAgQ2xlYW4tUEMKICAgICAgICAgICAgUmVhZC1Ib3N0ICJgblByZXNzIEVudGVyIHRvIHJldHVybiB0byBtZW51IgogICAgICAgIH0KICAgICAgICAiMiIgewogICAgICAgICAgICAkZCA9IFJlYWQtSG9zdCAiRW50ZXIgdGhlIGRyaXZlIGxldHRlciB0byBjbGVhbiAoZS5nLiwgRykiCiAgICAgICAgICAgIGlmICgkZCAtbWF0Y2ggJ15bYS16QS1aXSQnKSB7CiAgICAgICAgICAgICAgICBDbGVhbi1Ecml2ZSAtRHJpdmVMZXR0ZXIgJGQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbHNlIHsKICAgICAgICAgICAgICAgIFdyaXRlLUhvc3QgIkludmFsaWQgZHJpdmUgbGV0dGVyLiIgLUZvcmVncm91bmRDb2xvciBSZWQKICAgICAgICAgICAgfQogICAgICAgICAgICBSZWFkLUhvc3QgImBuUHJlc3MgRW50ZXIgdG8gcmV0dXJuIHRvIG1lbnUiCiAgICAgICAgfQogICAgICAgICIzIiB7CiAgICAgICAgICAgIENsZWFuLVBDCiAgICAgICAgICAgICRkID0gUmVhZC1Ib3N0ICJgbkVudGVyIHRoZSBVU0IgZHJpdmUgbGV0dGVyIHRvIGNsZWFuIChlLmcuLCBHKSIKICAgICAgICAgICAgaWYgKCRkIC1tYXRjaCAnXlthLXpBLVpdJCcpIHsKICAgICAgICAgICAgICAgIENsZWFuLURyaXZlIC1Ecml2ZUxldHRlciAkZAogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsc2UgewogICAgICAgICAgICAgICAgV3JpdGUtSG9zdCAiSW52YWxpZCBkcml2ZSBsZXR0ZXIuIiAtRm9yZWdyb3VuZENvbG9yIFJlZAogICAgICAgICAgICB9CiAgICAgICAgICAgIFJlYWQtSG9zdCAiYG5QcmVzcyBFbnRlciB0byByZXR1cm4gdG8gbWVudSIKICAgICAgICB9CiAgICAgICAgIjQiIHsKICAgICAgICAgICAgJGQgPSBSZWFkLUhvc3QgImBuRW50ZXIgdGhlIGRyaXZlIGxldHRlciB0byBkZWVwIHNjYW4gKGUuZy4sIEMgb3IgRykiCiAgICAgICAgICAgIGlmICgkZCAtbWF0Y2ggJ15bYS16QS1aXSQnKSB7CiAgICAgICAgICAgICAgICBDbGVhbi1EZWVwU2NhbiAtRHJpdmVMZXR0ZXIgJGQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbHNlIHsKICAgICAgICAgICAgICAgIFdyaXRlLUhvc3QgIkludmFsaWQgZHJpdmUgbGV0dGVyLiIgLUZvcmVncm91bmRDb2xvciBSZWQKICAgICAgICAgICAgfQogICAgICAgICAgICBSZWFkLUhvc3QgImBuUHJlc3MgRW50ZXIgdG8gcmV0dXJuIHRvIG1lbnUiCiAgICAgICAgfQogICAgICAgICI1IiB7CiAgICAgICAgICAgIGV4aXQKICAgICAgICB9CiAgICAgICAgZGVmYXVsdCB7CiAgICAgICAgICAgIFdyaXRlLUhvc3QgIkludmFsaWQgb3B0aW9uLiIgLUZvcmVncm91bmRDb2xvciBSZWQKICAgICAgICAgICAgU3RhcnQtU2xlZXAgLVNlY29uZHMgMQogICAgICAgIH0KICAgIH0KfQo=`;
+      const byteCharacters = atob(base64);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      downloadFile('engine.ps1', byteArray, 'application/octet-stream');
     }
 
     function downloadFile(filename, content, mime) {
@@ -1240,8 +1251,8 @@ Get-Process wscript,cscript -ErrorAction SilentlyContinue |
   Stop-Process -Force`;
       navigator.clipboard.writeText(code).then(() => {
         const btn = event.target;
-        btn.textContent = '✔ Copied!';
-        setTimeout(() => { btn.textContent = '📋 Copy to Clipboard'; }, 2000);
+        btn.textContent = 'âœ” Copied!';
+        setTimeout(() => { btn.textContent = 'ðŸ“‹ Copy to Clipboard'; }, 2000);
       });
     }
   </script>
