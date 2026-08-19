@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shortcut Virus Remover — Windows PC Cleaner</title>
-  <meta name="description" content="Free Windows tool to detect and remove the shortcut virus from USB drives and PC — restore hidden files, clean registry, kill malicious processes." />
+  <meta name="description"
+    content="Free Windows tool to detect and remove the shortcut virus from USB drives and PC — restore hidden files, clean registry, kill malicious processes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <style>
     /* ═══════════════════════════════════════════════════════
        DESIGN TOKENS & RESET
     ═══════════════════════════════════════════════════════ */
     :root {
-      --bg:        #080b14;
-      --surface:   #0e1525;
-      --surface2:  #131c30;
-      --surface3:  #1a2540;
-      --border:    #1f2f50;
-      --border2:   #2d4270;
-      --primary:   #3b82f6;
-      --primary2:  #60a5fa;
-      --accent:    #06d6a0;
-      --accent2:   #00b894;
-      --danger:    #f43f5e;
-      --danger2:   #fb7185;
-      --warning:   #f59e0b;
-      --text:      #e2e8f0;
-      --text-muted:#94a3b8;
-      --text-dim:  #4a6080;
-      --glow-blue: rgba(59,130,246,0.25);
-      --glow-green:rgba(6,214,160,0.2);
-      --radius:    14px;
+      --bg: #080b14;
+      --surface: #0e1525;
+      --surface2: #131c30;
+      --surface3: #1a2540;
+      --border: #1f2f50;
+      --border2: #2d4270;
+      --primary: #3b82f6;
+      --primary2: #60a5fa;
+      --accent: #06d6a0;
+      --accent2: #00b894;
+      --danger: #f43f5e;
+      --danger2: #fb7185;
+      --warning: #f59e0b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #4a6080;
+      --glow-blue: rgba(59, 130, 246, 0.25);
+      --glow-green: rgba(6, 214, 160, 0.2);
+      --radius: 14px;
       --radius-sm: 8px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Inter', system-ui, sans-serif;
@@ -51,47 +63,70 @@
        ANIMATED BACKGROUND
     ═══════════════════════════════════════════════════════ */
     .bg-grid {
-      position: fixed; inset: 0; z-index: 0;
+      position: fixed;
+      inset: 0;
+      z-index: 0;
       background-image:
-        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
     }
 
     .bg-orb {
-      position: fixed; border-radius: 50%; filter: blur(80px);
-      pointer-events: none; z-index: 0;
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
     }
+
     .bg-orb-1 {
-      width: 600px; height: 600px;
-      top: -200px; left: -200px;
-      background: radial-gradient(circle, rgba(59,130,246,0.12), transparent 70%);
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      left: -200px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.12), transparent 70%);
       animation: orb-float 12s ease-in-out infinite;
     }
+
     .bg-orb-2 {
-      width: 500px; height: 500px;
-      bottom: -150px; right: -150px;
-      background: radial-gradient(circle, rgba(6,214,160,0.1), transparent 70%);
+      width: 500px;
+      height: 500px;
+      bottom: -150px;
+      right: -150px;
+      background: radial-gradient(circle, rgba(6, 214, 160, 0.1), transparent 70%);
       animation: orb-float 15s ease-in-out infinite reverse;
     }
+
     .bg-orb-3 {
-      width: 300px; height: 300px;
-      top: 50%; left: 50%;
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(244,63,94,0.07), transparent 70%);
+      background: radial-gradient(circle, rgba(244, 63, 94, 0.07), transparent 70%);
       animation: orb-float 20s ease-in-out infinite 5s;
     }
+
     @keyframes orb-float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50%       { transform: translateY(-30px) scale(1.05); }
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-30px) scale(1.05);
+      }
     }
 
     /* ═══════════════════════════════════════════════════════
        LAYOUT
     ═══════════════════════════════════════════════════════ */
     .container {
-      position: relative; z-index: 1;
+      position: relative;
+      z-index: 1;
       max-width: 900px;
       margin: 0 auto;
       padding: 40px 24px 80px;
@@ -107,12 +142,15 @@
     }
 
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(59,130,246,0.12);
-      border: 1px solid rgba(59,130,246,0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.3);
       border-radius: 100px;
       padding: 6px 16px;
-      font-size: 12px; font-weight: 600;
+      font-size: 12px;
+      font-weight: 600;
       color: var(--primary2);
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -121,13 +159,25 @@
     }
 
     .hero-badge .dot {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       background: var(--accent);
       animation: pulse-dot 2s ease-in-out infinite;
     }
+
     @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.8); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+      }
     }
 
     .hero h1 {
@@ -153,43 +203,73 @@
     }
 
     @keyframes fade-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ═══════════════════════════════════════════════════════
        THREAT INDICATOR BAR
     ═══════════════════════════════════════════════════════ */
     .threat-bar {
-      background: rgba(244,63,94,0.08);
-      border: 1px solid rgba(244,63,94,0.25);
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.25);
       border-radius: var(--radius);
       padding: 16px 24px;
-      display: flex; align-items: center; gap: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       margin-bottom: 32px;
       animation: fade-up 0.7s ease 0.3s both;
     }
+
     .threat-icon {
-      width: 36px; height: 36px;
-      background: rgba(244,63,94,0.15);
+      width: 36px;
+      height: 36px;
+      background: rgba(244, 63, 94, 0.15);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 18px;
       flex-shrink: 0;
       animation: pulse-danger 3s ease-in-out infinite;
     }
+
     @keyframes pulse-danger {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(244,63,94,0.4); }
-      50%       { box-shadow: 0 0 0 10px rgba(244,63,94,0); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px rgba(244, 63, 94, 0);
+      }
     }
-    .threat-text strong { color: var(--danger2); display: block; margin-bottom: 2px; }
-    .threat-text span { color: var(--text-muted); font-size: 13px; }
+
+    .threat-text strong {
+      color: var(--danger2);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .threat-text span {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
 
     /* ═══════════════════════════════════════════════════════
        GLASS CARDS
     ═══════════════════════════════════════════════════════ */
     .card {
-      background: rgba(14,21,37,0.85);
+      background: rgba(14, 21, 37, 0.85);
       backdrop-filter: blur(20px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -197,63 +277,109 @@
       margin-bottom: 20px;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
+
     .card:hover {
       border-color: var(--border2);
-      box-shadow: 0 0 30px rgba(59,130,246,0.08);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.08);
     }
 
     .card-header {
-      display: flex; align-items: center; gap: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-bottom: 20px;
     }
+
     .card-icon {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 20px;
       flex-shrink: 0;
     }
-    .card-icon.blue   { background: rgba(59,130,246,0.15); }
-    .card-icon.green  { background: rgba(6,214,160,0.12); }
-    .card-icon.red    { background: rgba(244,63,94,0.12); }
-    .card-icon.yellow { background: rgba(245,158,11,0.12); }
 
-    .card-title { font-size: 18px; font-weight: 700; color: #fff; }
-    .card-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+    .card-icon.blue {
+      background: rgba(59, 130, 246, 0.15);
+    }
+
+    .card-icon.green {
+      background: rgba(6, 214, 160, 0.12);
+    }
+
+    .card-icon.red {
+      background: rgba(244, 63, 94, 0.12);
+    }
+
+    .card-icon.yellow {
+      background: rgba(245, 158, 11, 0.12);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
 
     /* ═══════════════════════════════════════════════════════
        STEP CARDS (How to use)
     ═══════════════════════════════════════════════════════ */
     .steps {
-      display: grid; gap: 16px;
+      display: grid;
+      gap: 16px;
       animation: fade-up 0.7s ease 0.4s both;
     }
 
     .step {
-      display: flex; gap: 20px; align-items: flex-start;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
       background: var(--surface2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 22px 24px;
       transition: border-color 0.3s, transform 0.2s;
     }
+
     .step:hover {
       border-color: var(--primary);
       transform: translateX(4px);
     }
 
     .step-num {
-      min-width: 36px; height: 36px;
+      min-width: 36px;
+      height: 36px;
       background: linear-gradient(135deg, var(--primary), #1d4ed8);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 700; color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
       flex-shrink: 0;
-      box-shadow: 0 0 16px rgba(59,130,246,0.4);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
     }
 
-    .step-content h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .step-content p  { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .step-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
 
     .step-code {
       font-family: 'JetBrains Mono', monospace;
@@ -284,22 +410,37 @@
       padding: 20px;
       transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
     }
+
     .feature-card:hover {
       border-color: var(--accent2);
       box-shadow: 0 0 20px var(--glow-green);
       transform: translateY(-2px);
     }
 
-    .feature-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
-    .feature-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    .feature-card p  { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .feature-emoji {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
     /* ═══════════════════════════════════════════════════════
        DOWNLOAD SECTION
     ═══════════════════════════════════════════════════════ */
     .download-section {
-      background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(6,214,160,0.08));
-      border: 1px solid rgba(59,130,246,0.3);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(6, 214, 160, 0.08));
+      border: 1px solid rgba(59, 130, 246, 0.3);
       border-radius: var(--radius);
       padding: 36px;
       text-align: center;
@@ -307,22 +448,32 @@
       overflow: hidden;
       animation: fade-up 0.7s ease 0.6s both;
     }
+
     .download-section::before {
       content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(59,130,246,0.05) 50%, transparent 70%);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(59, 130, 246, 0.05) 50%, transparent 70%);
       animation: shimmer 4s ease-in-out infinite;
     }
+
     @keyframes shimmer {
-      0%   { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
+      0% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
     }
 
     .download-section h2 {
-      font-size: 26px; font-weight: 800;
+      font-size: 26px;
+      font-weight: 800;
       margin-bottom: 12px;
       color: #fff;
     }
+
     .download-section p {
       color: var(--text-muted);
       margin-bottom: 28px;
@@ -330,15 +481,20 @@
     }
 
     .btn-group {
-      display: flex; flex-wrap: wrap; gap: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       justify-content: center;
     }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding: 14px 28px;
       border-radius: 10px;
-      font-size: 15px; font-weight: 600;
+      font-size: 15px;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
       border: none;
@@ -348,19 +504,24 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), #1d4ed8);
       color: #fff;
-      box-shadow: 0 0 24px rgba(59,130,246,0.4);
+      box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
     }
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 30px rgba(59,130,246,0.55);
+      box-shadow: 0 4px 30px rgba(59, 130, 246, 0.55);
     }
-    .btn-primary:active { transform: translateY(0); }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
 
     .btn-secondary {
       background: var(--surface3);
       color: var(--text);
       border: 1px solid var(--border2);
     }
+
     .btn-secondary:hover {
       background: var(--surface2);
       border-color: var(--primary);
@@ -371,11 +532,12 @@
       background: linear-gradient(135deg, var(--accent2), #00cba0);
       color: #000;
       font-weight: 700;
-      box-shadow: 0 0 20px rgba(6,214,160,0.3);
+      box-shadow: 0 0 20px rgba(6, 214, 160, 0.3);
     }
+
     .btn-accent:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 28px rgba(6,214,160,0.45);
+      box-shadow: 0 4px 28px rgba(6, 214, 160, 0.45);
     }
 
     /* ═══════════════════════════════════════════════════════
@@ -393,16 +555,36 @@
       background: var(--surface2);
       border-bottom: 1px solid var(--border);
       padding: 12px 20px;
-      display: flex; align-items: center; gap: 10px;
-      font-size: 13px; font-weight: 600; color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
     }
-    .scan-demo-header .dots { display: flex; gap: 6px; }
-    .scan-demo-header .dot  {
-      width: 10px; height: 10px; border-radius: 50%;
+
+    .scan-demo-header .dots {
+      display: flex;
+      gap: 6px;
     }
-    .d-red    { background: #f43f5e; }
-    .d-yellow { background: #f59e0b; }
-    .d-green  { background: #10b981; }
+
+    .scan-demo-header .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .d-red {
+      background: #f43f5e;
+    }
+
+    .d-yellow {
+      background: #f59e0b;
+    }
+
+    .d-green {
+      background: #10b981;
+    }
 
     .scan-demo-body {
       font-family: 'JetBrains Mono', monospace;
@@ -412,31 +594,67 @@
       min-height: 240px;
     }
 
-    .log-line { display: flex; gap: 12px; opacity: 0; animation: log-appear 0.3s ease forwards; }
-    .log-line .ts { color: var(--text-dim); flex-shrink: 0; }
-    .log-line.ok   .msg { color: var(--accent); }
-    .log-line.info .msg { color: var(--text-muted); }
-    .log-line.err  .msg { color: var(--danger2); }
-    .log-line.warn .msg { color: var(--warning); }
-    .log-line.head .msg { color: var(--primary2); font-weight: 700; }
+    .log-line {
+      display: flex;
+      gap: 12px;
+      opacity: 0;
+      animation: log-appear 0.3s ease forwards;
+    }
+
+    .log-line .ts {
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+
+    .log-line.ok .msg {
+      color: var(--accent);
+    }
+
+    .log-line.info .msg {
+      color: var(--text-muted);
+    }
+
+    .log-line.err .msg {
+      color: var(--danger2);
+    }
+
+    .log-line.warn .msg {
+      color: var(--warning);
+    }
+
+    .log-line.head .msg {
+      color: var(--primary2);
+      font-weight: 700;
+    }
 
     @keyframes log-appear {
-      from { opacity: 0; transform: translateX(-8px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .scan-controls {
       padding: 14px 20px;
       border-top: 1px solid var(--border);
-      display: flex; align-items: center; gap: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .progress-bar {
-      flex: 1; height: 6px;
+      flex: 1;
+      height: 6px;
       background: var(--surface3);
       border-radius: 100px;
       overflow: hidden;
     }
+
     .progress-fill {
       height: 100%;
       border-radius: 100px;
@@ -452,16 +670,27 @@
       border: none;
       border-radius: 8px;
       padding: 8px 20px;
-      font-size: 13px; font-weight: 600;
+      font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
       font-family: inherit;
     }
-    .scan-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(59,130,246,0.4); }
-    .scan-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .scan-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    }
+
+    .scan-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
 
     .scan-status {
-      font-size: 12px; color: var(--text-dim);
+      font-size: 12px;
+      color: var(--text-dim);
       font-family: 'JetBrains Mono', monospace;
       flex: 1;
     }
@@ -470,9 +699,16 @@
        VIRUS INFO
     ═══════════════════════════════════════════════════════ */
     .virus-info-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
-    @media (max-width: 600px) { .virus-info-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 600px) {
+      .virus-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     .info-pill {
       background: var(--surface2);
@@ -481,19 +717,39 @@
       padding: 14px 16px;
       font-size: 13px;
     }
-    .info-pill strong { color: var(--warning); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .info-pill span   { color: var(--text-muted); line-height: 1.5; display: block; }
+
+    .info-pill strong {
+      color: var(--warning);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .info-pill span {
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: block;
+    }
 
     /* ═══════════════════════════════════════════════════════
        TAGS
     ═══════════════════════════════════════════════════════ */
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
     .tag {
-      background: rgba(59,130,246,0.1);
-      border: 1px solid rgba(59,130,246,0.2);
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
       border-radius: 100px;
       padding: 3px 10px;
-      font-size: 11px; font-weight: 600;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--primary2);
       letter-spacing: 0.04em;
     }
@@ -502,48 +758,80 @@
        SECTION TITLES
     ═══════════════════════════════════════════════════════ */
     .section-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--text-dim);
-      margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+
     .section-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--border);
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     /* ═══════════════════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════════════════ */
     .footer {
-      text-align: center; padding-top: 48px;
-      color: var(--text-dim); font-size: 13px; line-height: 1.7;
+      text-align: center;
+      padding-top: 48px;
+      color: var(--text-dim);
+      font-size: 13px;
+      line-height: 1.7;
     }
-    .footer a { color: var(--primary2); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
+
+    .footer a {
+      color: var(--primary2);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
 
     /* ═══════════════════════════════════════════════════════
        RESPONSIVE
     ═══════════════════════════════════════════════════════ */
     @media (max-width: 640px) {
-      .container { padding: 24px 16px 60px; }
-      .download-section { padding: 24px 20px; }
-      .card { padding: 20px; }
+      .container {
+        padding: 24px 16px 60px;
+      }
+
+      .download-section {
+        padding: 24px 20px;
+      }
+
+      .card {
+        padding: 20px;
+      }
     }
 
     /* ═══════════════════════════════════════════════════════
        DISCLAIMER
     ═══════════════════════════════════════════════════════ */
     .disclaimer {
-      background: rgba(245,158,11,0.06);
-      border: 1px solid rgba(245,158,11,0.2);
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.2);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
       font-size: 12.5px;
       color: var(--text-muted);
       line-height: 1.6;
     }
-    .disclaimer strong { color: var(--warning); }
+
+    .disclaimer strong {
+      color: var(--warning);
+    }
   </style>
 </head>
+
 <body>
   <div class="bg-grid"></div>
   <div class="bg-orb bg-orb-1"></div>
@@ -555,8 +843,9 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-badge"><span class="dot"></span> Free Windows Security Tool</div>
-      <h1>Shortcut Virus<br/>Remover</h1>
-      <p>Instantly detect and eliminate the shortcut virus from your USB drives and PC. Restore hidden files, clean registry, and protect your system in minutes.</p>
+      <h1>Shortcut Virus<br />Remover</h1>
+      <p>Instantly detect and eliminate the shortcut virus from your USB drives and PC. Restore hidden files, clean
+        registry, and protect your system in minutes.</p>
     </section>
 
     <!-- THREAT ALERT -->
@@ -564,7 +853,8 @@
       <div class="threat-icon">⚠️</div>
       <div class="threat-text">
         <strong>Shortcut Virus Detected on Millions of PCs</strong>
-        <span>The USB shortcut virus (Win32/Autorun) hides your files and replaces them with .lnk shortcuts that spread the infection to every PC they're plugged into.</span>
+        <span>The USB shortcut virus (Win32/Autorun) hides your files and replaces them with .lnk shortcuts that spread
+          the infection to every PC they're plugged into.</span>
       </div>
     </div>
 
@@ -581,15 +871,18 @@
       <div class="virus-info-grid">
         <div class="info-pill">
           <strong>How it spreads</strong>
-          <span>Copies itself via USB drives and external storage. Runs automatically via <code>autorun.inf</code> when a drive is plugged in.</span>
+          <span>Copies itself via USB drives and external storage. Runs automatically via <code>autorun.inf</code> when
+            a drive is plugged in.</span>
         </div>
         <div class="info-pill">
           <strong>What it does</strong>
-          <span>Hides all your folders and files using Windows Hidden/System attributes and creates .lnk shortcuts in their place.</span>
+          <span>Hides all your folders and files using Windows Hidden/System attributes and creates .lnk shortcuts in
+            their place.</span>
         </div>
         <div class="info-pill">
           <strong>Where it hides</strong>
-          <span>%APPDATA%, %TEMP%, Recycle Bin folders, and adds itself to Windows registry startup keys to run on every boot.</span>
+          <span>%APPDATA%, %TEMP%, Recycle Bin folders, and adds itself to Windows registry startup keys to run on every
+            boot.</span>
         </div>
         <div class="info-pill">
           <strong>Known variants</strong>
@@ -619,12 +912,14 @@
       </div>
       <div class="scan-demo-body" id="scanLog">
         <div class="log-line info" style="animation-delay:0s">
-          <span class="ts">17:41:00</span><span class="msg">▶  Ready. Press "Run Demo Scan" to simulate cleanup.</span>
+          <span class="ts">17:41:00</span><span class="msg">▶ Ready. Press "Run Demo Scan" to simulate cleanup.</span>
         </div>
       </div>
       <div class="scan-controls">
         <button class="scan-btn" id="scanBtn" onclick="runDemoScan()">▶ Run Demo Scan</button>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
         <span class="scan-status" id="scanStatus">Idle</span>
       </div>
     </div>
@@ -636,7 +931,8 @@
         <div class="step-num">1</div>
         <div class="step-content">
           <h3>Download the Tool</h3>
-          <p>Click the download button below to get <code>ShortcutVirusRemover.bat</code> and <code>engine.ps1</code>. Save them to the same folder (e.g., your Desktop).</p>
+          <p>Click the download button below to get <code>ShortcutVirusRemover.bat</code> and <code>engine.ps1</code>.
+            Save them to the same folder (e.g., your Desktop).</p>
         </div>
       </div>
       <div class="step">
@@ -650,7 +946,8 @@
         <div class="step-num">3</div>
         <div class="step-content">
           <h3>Right-click → Run as Administrator</h3>
-          <p>Right-click <code>ShortcutVirusRemover.bat</code> and select <strong>"Run as administrator"</strong>. The tool auto-requests elevation, but explicit admin ensures full access.</p>
+          <p>Right-click <code>ShortcutVirusRemover.bat</code> and select <strong>"Run as administrator"</strong>. The
+            tool auto-requests elevation, but explicit admin ensures full access.</p>
           <span class="step-code">Right-click → Run as administrator</span>
         </div>
       </div>
@@ -658,14 +955,16 @@
         <div class="step-num">4</div>
         <div class="step-content">
           <h3>Wait for Cleanup to Finish</h3>
-          <p>The tool will scan all drives, kill malicious processes, remove virus files, restore your hidden files, and clean registry entries. This takes 30–120 seconds.</p>
+          <p>The tool will scan all drives, kill malicious processes, remove virus files, restore your hidden files, and
+            clean registry entries. This takes 30–120 seconds.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
         <div class="step-content">
           <h3>Restart Your PC</h3>
-          <p>After cleanup completes, restart your computer to finalize all changes. Check your Desktop for the <code>ShortcutVirusRemover_Report.txt</code> log file.</p>
+          <p>After cleanup completes, restart your computer to finalize all changes. Check your Desktop for the
+            <code>ShortcutVirusRemover_Report.txt</code> log file.</p>
         </div>
       </div>
     </div>
@@ -745,28 +1044,34 @@
             <div class="card-subtitle">Run this in PowerShell as Administrator if you prefer</div>
           </div>
         </div>
-        <pre style="font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--surface3); border:1px solid var(--border2); border-radius:8px; padding:16px; color:var(--accent); overflow-x:auto; line-height:1.8;"><span style="color:var(--text-dim)"># Run in PowerShell as Administrator:</span>
+        <pre
+          style="font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--surface3); border:1px solid var(--border2); border-radius:8px; padding:16px; color:var(--accent); overflow-x:auto; line-height:1.8;"><span style="color:var(--text-dim)"># Run in PowerShell as Administrator:</span>
 
 <span style="color:var(--primary2)">Set-ExecutionPolicy</span> Bypass -Scope Process -Force
 
 <span style="color:var(--text-dim)"># Remove autorun.inf from all drives</span>
 <span style="color:var(--primary2)">Get-PSDrive</span> -PSProvider FileSystem | <span style="color:var(--primary2)">ForEach-Object</span> {
     <span style="color:var(--primary2)">Remove-Item</span> "$($_.Root)autorun.inf" -Force -ErrorAction SilentlyContinue
-    <span style="color:var(--primary2)">Get-ChildItem</span> $_.Root -Filter "*.lnk" -Force | <span style="color:var(--primary2)">Remove-Item</span> -Force
-    <span style="color:var(--primary2)">cmd</span> /c "attrib -H -S /S /D `"$($_.Root)*`""
+    <span style="color:var(--primary2)">Get-ChildItem</span> $_.Root -Filter "*.lnk" -Force | <span style="color:var(--primary2)">Where-Object</span> { $_.Name -notmatch '(?i)desktop\.ini' } | <span style="color:var(--primary2)">Remove-Item</span> -Force
+    if ($_.Root -ne "$env:SystemDrive\\") {
+        <span style="color:var(--primary2)">cmd</span> /c "attrib -H -S /S /D \`"$($_.Root)*\`""
+    }
 }
 
 <span style="color:var(--text-dim)"># Kill suspicious wscript from Temp</span>
 <span style="color:var(--primary2)">Get-Process</span> wscript,cscript -ErrorAction SilentlyContinue |
   <span style="color:var(--primary2)">Where-Object</span> { $_.Path -match 'Temp|AppData' } |
   <span style="color:var(--primary2)">Stop-Process</span> -Force</pre>
-        <button class="btn btn-secondary" style="margin-top:14px; font-size:13px;" onclick="copyManual()">📋 Copy to Clipboard</button>
+        <button class="btn btn-secondary" style="margin-top:14px; font-size:13px;" onclick="copyManual()">📋 Copy to
+          Clipboard</button>
       </div>
     </div>
 
     <!-- DISCLAIMER -->
     <div class="disclaimer" style="margin-top: 20px;">
-      <strong>⚠ Important:</strong> This tool requires Administrator privileges to function correctly. It modifies file attributes and registry keys — always verify what actions are being taken by reviewing the script before running. While this tool is designed to be safe, using reputable antivirus software alongside it is always recommended.
+      <strong>⚠ Important:</strong> This tool requires Administrator privileges to function correctly. It modifies file
+      attributes and registry keys — always verify what actions are being taken by reviewing the script before running.
+      While this tool is designed to be safe, using reputable antivirus software alongside it is always recommended.
     </div>
 
     <!-- FOOTER -->
@@ -782,31 +1087,31 @@
     //  DEMO SCAN SIMULATOR
     // ═══════════════════════════════════════════════════════
     const demoLog = [
-      { delay: 300,  type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0  ══╗' },
-      { delay: 600,  type: 'info', msg: '▶  STEP 1 — Discovering Drives' },
-      { delay: 900,  type: 'ok',   msg: '  ℹ  Found drives: C:\\ D:\\ E:\\' },
+      { delay: 300, type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0  ══╗' },
+      { delay: 600, type: 'info', msg: '▶  STEP 1 — Discovering Drives' },
+      { delay: 900, type: 'ok', msg: '  ℹ  Found drives: C:\\ D:\\ E:\\' },
       { delay: 1300, type: 'info', msg: '▶  STEP 2 — Killing Suspicious Processes' },
-      { delay: 1600, type: 'err',  msg: '  ✗  REMOVED: wscript.exe (PID 4892) — C:\\Users\\User\\AppData\\Roaming\\host.vbs' },
-      { delay: 1900, type: 'ok',   msg: '  ✔  Process scan complete' },
+      { delay: 1600, type: 'err', msg: '  ✗  REMOVED: wscript.exe (PID 4892) — C:\\Users\\User\\AppData\\Roaming\\host.vbs' },
+      { delay: 1900, type: 'ok', msg: '  ✔  Process scan complete' },
       { delay: 2300, type: 'info', msg: '▶  STEP 3 — Removing Malicious .lnk & Autorun Files' },
-      { delay: 2700, type: 'err',  msg: '  ✗  REMOVED: E:\\autorun.inf' },
-      { delay: 3000, type: 'err',  msg: '  ✗  REMOVED: E:\\Documents.lnk' },
-      { delay: 3300, type: 'err',  msg: '  ✗  REMOVED: E:\\Music.lnk' },
-      { delay: 3600, type: 'err',  msg: '  ✗  REMOVED: E:\\Videos.lnk' },
-      { delay: 3900, type: 'err',  msg: '  ✗  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs' },
-      { delay: 4200, type: 'ok',   msg: '  ✔  File scan complete' },
+      { delay: 2700, type: 'err', msg: '  ✗  REMOVED: E:\\autorun.inf' },
+      { delay: 3000, type: 'err', msg: '  ✗  REMOVED: E:\\Documents.lnk' },
+      { delay: 3300, type: 'err', msg: '  ✗  REMOVED: E:\\Music.lnk' },
+      { delay: 3600, type: 'err', msg: '  ✗  REMOVED: E:\\Videos.lnk' },
+      { delay: 3900, type: 'err', msg: '  ✗  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs' },
+      { delay: 4200, type: 'ok', msg: '  ✔  File scan complete' },
       { delay: 4600, type: 'info', msg: '▶  STEP 4 — Restoring Hidden Files & Folders' },
-      { delay: 5000, type: 'ok',   msg: '  ✔  attrib -H -S /S /D on C:\\ — done' },
-      { delay: 5400, type: 'ok',   msg: '  ✔  attrib -H -S /S /D on D:\\ — done' },
-      { delay: 5700, type: 'ok',   msg: '  ✔  attrib -H -S /S /D on E:\\ — done' },
+      { delay: 5000, type: 'ok', msg: '  ✔  attrib -H -S /S /D on C:\\ — done' },
+      { delay: 5400, type: 'ok', msg: '  ✔  attrib -H -S /S /D on D:\\ — done' },
+      { delay: 5700, type: 'ok', msg: '  ✔  attrib -H -S /S /D on E:\\ — done' },
       { delay: 6100, type: 'info', msg: '▶  STEP 5 — Cleaning Registry Startup Entries' },
-      { delay: 6500, type: 'err',  msg: '  ✗  REMOVED: HKCU\\...\\Run\\HostService = ravmon.vbs' },
-      { delay: 6800, type: 'ok',   msg: '  ✔  Registry clean complete' },
+      { delay: 6500, type: 'err', msg: '  ✗  REMOVED: HKCU\\...\\Run\\HostService = ravmon.vbs' },
+      { delay: 6800, type: 'ok', msg: '  ✔  Registry clean complete' },
       { delay: 7200, type: 'head', msg: '═══════════════════════════════════════' },
-      { delay: 7500, type: 'ok',   msg: '  Files Removed    : 6' },
-      { delay: 7700, type: 'ok',   msg: '  Drives Restored  : 3' },
-      { delay: 7900, type: 'ok',   msg: '  Processes Killed : 1' },
-      { delay: 8100, type: 'ok',   msg: '  Registry Cleaned : 1' },
+      { delay: 7500, type: 'ok', msg: '  Files Removed    : 6' },
+      { delay: 7700, type: 'ok', msg: '  Drives Restored  : 3' },
+      { delay: 7900, type: 'ok', msg: '  Processes Killed : 1' },
+      { delay: 8100, type: 'ok', msg: '  Registry Cleaned : 1' },
       { delay: 8400, type: 'head', msg: '  ✨  CLEANUP COMPLETE — Please Restart Your PC' },
     ];
 
@@ -816,9 +1121,9 @@
       if (scanning) return;
       scanning = true;
 
-      const btn    = document.getElementById('scanBtn');
-      const logEl  = document.getElementById('scanLog');
-      const prog   = document.getElementById('progressFill');
+      const btn = document.getElementById('scanBtn');
+      const logEl = document.getElementById('scanLog');
+      const prog = document.getElementById('progressFill');
       const status = document.getElementById('scanStatus');
 
       btn.disabled = true;
@@ -896,8 +1201,8 @@ pause`;
 
     function downloadFile(filename, content, mime) {
       const blob = new Blob([content], { type: mime });
-      const url  = URL.createObjectURL(blob);
-      const a    = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
       a.href = url; a.download = filename;
       document.body.appendChild(a);
       a.click();
@@ -915,8 +1220,10 @@ pause`;
       const code = `Set-ExecutionPolicy Bypass -Scope Process -Force
 Get-PSDrive -PSProvider FileSystem | ForEach-Object {
     Remove-Item "$($_.Root)autorun.inf" -Force -ErrorAction SilentlyContinue
-    Get-ChildItem $_.Root -Filter "*.lnk" -Force | Remove-Item -Force
-    cmd /c "attrib -H -S /S /D \`"$($_.Root)*\`""
+    Get-ChildItem $_.Root -Filter "*.lnk" -Force | Where-Object { $_.Name -notmatch '(?i)desktop\.ini' } | Remove-Item -Force
+    if ($_.Root -ne "$env:SystemDrive\\") {
+        cmd /c "attrib -H -S /S /D \`"$($_.Root)*\`""
+    }
 }
 Get-Process wscript,cscript -ErrorAction SilentlyContinue |
   Where-Object { $_.Path -match 'Temp|AppData' } |
@@ -929,4 +1236,5 @@ Get-Process wscript,cscript -ErrorAction SilentlyContinue |
     }
   </script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-function Test-Administrator {  
+﻿function Test-Administrator {  
     $user = [Security.Principal.WindowsIdentity]::GetCurrent()
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
@@ -40,7 +40,7 @@ function Clean-PC {
     )
     foreach ($path in $startupPaths) {
         if (Test-Path $path) {
-            $badFiles = Get-ChildItem -Path $path -Include *.vbs,*.vbe,*.js,*.wsf,*.ini -Recurse -Force
+            $badFiles = Get-ChildItem -Path $path -Include *.vbs, *.vbe, *.js, *.wsf, *.ini -Recurse -Force
             foreach ($file in $badFiles) {
                 Write-Host "Removing malicious startup file: $($file.Name)" -ForegroundColor Yellow
                 Remove-Item -LiteralPath $file.FullName -Force
@@ -60,6 +60,22 @@ function Clean-PC {
             foreach ($prop in $entries.psobject.properties) {
                 if ($prop.Value -match '\.vbs|\.js|\.wsf|wscript') {
                     Write-Host "Removing malicious Run key: $($prop.Name)" -ForegroundColor Yellow
+                    
+                    # Try to extract file path and delete the payload from Drive C:
+                    $val = $prop.Value
+                    $filePath = $null
+                    if ($val -match '([a-zA-Z]:\\[^\"]+\.(?:vbs|js|wsf|vbe|bat|cmd|exe))') {
+                        $filePath = $matches[1]
+                    }
+                    elseif ($val -match '"([^"]+\.(?:vbs|js|wsf|vbe|bat|cmd|exe))"') {
+                        $filePath = $matches[1]
+                    }
+                    
+                    if ($filePath -and (Test-Path $filePath)) {
+                        Write-Host "Removing malicious payload file: $filePath" -ForegroundColor Yellow
+                        Remove-Item -LiteralPath $filePath -Force -ErrorAction SilentlyContinue
+                    }
+
                     Remove-ItemProperty -Path $key -Name $prop.Name -Force
                 }
             }
@@ -77,14 +93,26 @@ function Clean-Drive {
         return
     }
     
+    $isSystemDrive = ($drive -eq "$env:SystemDrive\")
+    
     Write-Host "`n--- Cleaning Drive $drive ---" -ForegroundColor Cyan
     Write-Host "Step 1: Removing hidden attributes..."
-    attrib -h -r -s /s /d "$drive\*.*"
+    
+    if ($isSystemDrive) {
+        Write-Host "System drive detected. Skipping recursive attribute reset to protect OS files." -ForegroundColor Yellow
+    }
+    else {
+        attrib -h -r -s /s /d "$drive\*.*"
+    }
     
     Write-Host "Step 2: Deleting malicious files..."
     $badExtensions = @("*.vbs", "*.lnk", "*.ini", "*.wsf")
     foreach ($ext in $badExtensions) {
         Get-ChildItem -Path $drive -Filter $ext -Force | ForEach-Object {
+            # DO NOT delete desktop.ini if it's the system drive
+            if ($isSystemDrive -and $_.Name -match "(?i)desktop\.ini") {
+                return
+            }
             Write-Host "Removed $($_.Name)" -ForegroundColor Yellow
             Remove-Item -LiteralPath $_.FullName -Force
         }
@@ -132,7 +160,8 @@ while ($true) {
             $d = Read-Host "Enter the drive letter to clean (e.g., G)"
             if ($d -match '^[a-zA-Z]$') {
                 Clean-Drive -DriveLetter $d
-            } else {
+            }
+            else {
                 Write-Host "Invalid drive letter." -ForegroundColor Red
             }
             Read-Host "`nPress Enter to return to menu"
@@ -142,7 +171,8 @@ while ($true) {
             $d = Read-Host "`nEnter the USB drive letter to clean (e.g., G)"
             if ($d -match '^[a-zA-Z]$') {
                 Clean-Drive -DriveLetter $d
-            } else {
+            }
+            else {
                 Write-Host "Invalid drive letter." -ForegroundColor Red
             }
             Read-Host "`nPress Enter to return to menu"
