@@ -1,4 +1,4 @@
-﻿function Test-Administrator {  
+function Test-Administrator {  
     $user = [Security.Principal.WindowsIdentity]::GetCurrent()
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
 }
@@ -138,6 +138,48 @@ function Clean-Drive {
     Write-Host "Drive $drive Cleanup Complete!" -ForegroundColor Green
 }
 
+function Clean-DeepScan {
+    param([string]$DriveLetter)
+    
+    $drive = "$($DriveLetter):\"
+    if (-not (Test-Path $drive)) {
+        Write-Host "Drive $drive not found!" -ForegroundColor Red
+        return
+    }
+    
+    Write-Host "`n--- Deep Scanning Drive $drive ---" -ForegroundColor Cyan
+    Write-Host "Safely inspecting all folders for malicious desktop.ini and .lnk shortcuts."
+    Write-Host "This may take a while depending on drive size..." -ForegroundColor Yellow
+    
+    $sh = New-Object -ComObject WScript.Shell
+    
+    Get-ChildItem -Path $drive -Include *.lnk, desktop.ini -Recurse -Force -ErrorAction SilentlyContinue | ForEach-Object {
+        $file = $_
+        try {
+            if ($file.Extension -eq '.lnk') {
+                $lnk = $sh.CreateShortcut($file.FullName)
+                # If shortcut launches a script or command prompt, it's likely malicious
+                if ($lnk.TargetPath -match '(?i)wscript\.exe|cscript\.exe|cmd\.exe|\.vbs|\.wsf|\.vbe|\.js') {
+                    Write-Host "Removing malicious shortcut: $($file.FullName)" -ForegroundColor Red
+                    Remove-Item -LiteralPath $file.FullName -Force
+                }
+            }
+            elseif ($file.Name -match '(?i)desktop\.ini') {
+                # Read content to check for malicious script triggers
+                $content = Get-Content -LiteralPath $file.FullName -Raw -ErrorAction SilentlyContinue
+                if ($content -match '(?i)wscript|cscript|\.vbs|\.wsf|\.vbe|\.js') {
+                    Write-Host "Removing infected desktop.ini: $($file.FullName)" -ForegroundColor Red
+                    Remove-Item -LiteralPath $file.FullName -Force
+                }
+            }
+        } catch {
+            # Skip if access denied or locked
+        }
+    }
+    
+    Write-Host "Deep Scan Complete!" -ForegroundColor Green
+}
+
 while ($true) {
     Clear-Host
     Write-Host "======================================" -ForegroundColor Cyan
@@ -146,10 +188,11 @@ while ($true) {
     Write-Host "1. Clean Local PC (Registry, Startup, Processes)"
     Write-Host "2. Clean a USB Drive"
     Write-Host "3. Clean Both (PC + USB)"
-    Write-Host "4. Exit"
+    Write-Host "4. Deep Scan a Drive (Recursively inspect desktop.ini & shortcuts)"
+    Write-Host "5. Exit"
     Write-Host "======================================" -ForegroundColor Cyan
     
-    $choice = Read-Host "Select an option (1-4)"
+    $choice = Read-Host "Select an option (1-5)"
     
     switch ($choice) {
         "1" {
@@ -178,6 +221,16 @@ while ($true) {
             Read-Host "`nPress Enter to return to menu"
         }
         "4" {
+            $d = Read-Host "`nEnter the drive letter to deep scan (e.g., C or G)"
+            if ($d -match '^[a-zA-Z]$') {
+                Clean-DeepScan -DriveLetter $d
+            }
+            else {
+                Write-Host "Invalid drive letter." -ForegroundColor Red
+            }
+            Read-Host "`nPress Enter to return to menu"
+        }
+        "5" {
             exit
         }
         default {
