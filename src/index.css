@@ -562,11 +562,53 @@
       gap: 6px;
     }
 
+    .scan-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: auto;
+      flex-wrap: wrap;
+    }
+
     .scan-filter-wrapper {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-left: auto;
+    }
+
+    .scan-export-btn {
+      background: var(--surface3);
+      color: var(--text);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 5px 12px;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .scan-export-btn:hover:not(:disabled) {
+      background: rgba(6, 214, 160, 0.12);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 0 10px rgba(6, 214, 160, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .scan-export-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .scan-export-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      border-color: var(--border);
     }
 
     .scan-filter-label {

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   downloadBatFile,
   downloadPs1File,
+  downloadFile,
   MANUAL_POWERSHELL_CODE,
 } from './data/scripts';
 
@@ -100,6 +101,7 @@ export const App: React.FC = () => {
   const [hasScanned, setHasScanned] = useState(false);
   const [showManual, setShowManual] = useState(false);
   const [copiedManual, setCopiedManual] = useState(false);
+  const [exportedNotice, setExportedNotice] = useState(false);
 
   const logContainerRef = useRef<HTMLDivElement>(null);
   const manualRef = useRef<HTMLDivElement>(null);
@@ -191,6 +193,40 @@ export const App: React.FC = () => {
       setCopiedManual(true);
       setTimeout(() => setCopiedManual(false), 2000);
     });
+  };
+
+  const handleExportLogs = () => {
+    if (filteredLogs.length === 0) return;
+
+    const now = new Date();
+    const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+    const filterLabel = filter === 'all' ? 'ALL LOGS' : `${filter.toUpperCase()} ONLY`;
+
+    let content = `╔═══════════════════════════════════════════════════════════════════╗\r\n`;
+    content += `║         SHORTCUT VIRUS REMOVER — SCAN LOG EXPORT REPORT           ║\r\n`;
+    content += `╚═══════════════════════════════════════════════════════════════════╝\r\n\r\n`;
+    content += `Generated On   : ${dateStr}\r\n`;
+    content += `Engine Version : PowerShell Engine v2.0\r\n`;
+    content += `Active Filter  : ${filterLabel} (${filteredLogs.length} entries)\r\n`;
+    content += `Total Logs Run : ${logs.length} entries\r\n\r\n`;
+    content += `═════════════════════════════════════════════════════════════════════\r\n`;
+    content += `TIME       TYPE    LOG MESSAGE\r\n`;
+    content += `═════════════════════════════════════════════════════════════════════\r\n`;
+
+    filteredLogs.forEach((entry) => {
+      const typeLabel = entry.type.toUpperCase().padEnd(6, ' ');
+      content += `[${entry.time}] [${typeLabel}] ${entry.msg}\r\n`;
+    });
+
+    content += `═════════════════════════════════════════════════════════════════════\r\n`;
+    content += `[✓] End of ShortcutVirusRemover scan log export.\r\n`;
+
+    const dateSlug = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
+    const fileName = `ShortcutVirusRemover_Log_${filter}_${dateSlug}.txt`;
+    downloadFile(fileName, content, 'text/plain;charset=utf-8');
+
+    setExportedNotice(true);
+    setTimeout(() => setExportedNotice(false), 2000);
   };
 
   const toggleManualInstructions = () => {
@@ -304,8 +340,51 @@ export const App: React.FC = () => {
               <span>ShortcutVirusRemover — PowerShell Engine v2.0</span>
             </div>
 
-            <div className="scan-filter-wrapper">
-              <label htmlFor="logFilter" className="scan-filter-label">
+            <div className="scan-header-actions">
+              <div className="scan-filter-wrapper">
+                <label htmlFor="logFilter" className="scan-filter-label">
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                  </svg>
+                  <span>Filter:</span>
+                </label>
+                <select
+                  id="logFilter"
+                  className="scan-filter-select"
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value as FilterType)}
+                  aria-label="Filter scan logs"
+                >
+                  <option value="all">All Logs ({counts.all})</option>
+                  <option value="err">Errors & Threats ({counts.err})</option>
+                  <option value="warn">Warnings ({counts.warn})</option>
+                  <option value="ok">Success ({counts.ok})</option>
+                  <option value="info">Info & Steps ({counts.info})</option>
+                  <option value="head">Headers ({counts.head})</option>
+                </select>
+              </div>
+
+              <button
+                type="button"
+                className="scan-export-btn"
+                onClick={handleExportLogs}
+                disabled={filteredLogs.length === 0}
+                title={
+                  filteredLogs.length === 0
+                    ? 'No logs available to export'
+                    : `Export ${filteredLogs.length} filtered log entries as a .txt file`
+                }
+              >
                 <svg
                   width="13"
                   height="13"
@@ -317,24 +396,12 @@ export const App: React.FC = () => {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Filter:</span>
-              </label>
-              <select
-                id="logFilter"
-                className="scan-filter-select"
-                value={filter}
-                onChange={(e) => setFilter(e.target.value as FilterType)}
-                aria-label="Filter scan logs"
-              >
-                <option value="all">All Logs ({counts.all})</option>
-                <option value="err">Errors & Threats ({counts.err})</option>
-                <option value="warn">Warnings ({counts.warn})</option>
-                <option value="ok">Success ({counts.ok})</option>
-                <option value="info">Info & Steps ({counts.info})</option>
-                <option value="head">Headers ({counts.head})</option>
-              </select>
+                <span>{exportedNotice ? '✔ Exported!' : 'Export .txt'}</span>
+              </button>
             </div>
           </div>
 
