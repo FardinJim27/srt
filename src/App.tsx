@@ -8,6 +8,7 @@ import {
 
 export type LogType = 'head' | 'info' | 'ok' | 'err' | 'warn';
 export type FilterType = 'all' | 'err' | 'warn' | 'ok' | 'info' | 'head';
+export type ScanMode = 'fast' | 'deep';
 
 interface LogEntry {
   delay: number;
@@ -22,66 +23,113 @@ interface DisplayedLog {
   msg: string;
 }
 
-const DEMO_LOG_SEQUENCE: LogEntry[] = [
-  { delay: 300, type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0  ══╗' },
-  { delay: 600, type: 'info', msg: '▶  STEP 1 — Discovering Drives' },
-  { delay: 900, type: 'ok', msg: '  ℹ  Found drives: C:\\ D:\\ E:\\' },
-  { delay: 1300, type: 'info', msg: '▶  STEP 2 — Killing Suspicious Processes' },
+const FAST_LOG_SEQUENCE: LogEntry[] = [
+  { delay: 250, type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0 [FAST MODE] ══╗' },
+  { delay: 500, type: 'info', msg: '▶  STEP 1 — Discovering Drives' },
+  { delay: 750, type: 'ok', msg: '  ℹ  Found drives: C:\\ D:\\ E:\\' },
+  { delay: 1100, type: 'info', msg: '▶  STEP 2 — Killing Suspicious Processes' },
   {
-    delay: 1600,
+    delay: 1400,
     type: 'err',
     msg: '  ✗  REMOVED: wscript.exe (PID 4892) — C:\\Users\\User\\AppData\\Roaming\\host.vbs',
   },
-  { delay: 1900, type: 'ok', msg: '  ✔  Process scan complete' },
+  { delay: 1700, type: 'ok', msg: '  ✔  Process scan complete' },
   {
-    delay: 2200,
+    delay: 2000,
     type: 'warn',
     msg: '  ⚠  WARNING: Suspicious script detected in C:\\Users\\User\\AppData\\Local\\Temp',
   },
   {
-    delay: 2500,
+    delay: 2300,
     type: 'info',
-    msg: '▶  STEP 3 — Removing Malicious .lnk & Autorun Files',
+    msg: '▶  STEP 3 — Removing Malicious .lnk & Autorun Files in Drive Roots',
   },
-  { delay: 2800, type: 'err', msg: '  ✗  REMOVED: E:\\autorun.inf' },
-  { delay: 3100, type: 'err', msg: '  ✗  REMOVED: E:\\Documents.lnk' },
-  { delay: 3400, type: 'err', msg: '  ✗  REMOVED: E:\\Music.lnk' },
-  { delay: 3700, type: 'err', msg: '  ✗  REMOVED: E:\\Videos.lnk' },
+  { delay: 2600, type: 'err', msg: '  ✗  REMOVED: E:\\autorun.inf' },
+  { delay: 2850, type: 'err', msg: '  ✗  REMOVED: E:\\Documents.lnk' },
+  { delay: 3100, type: 'err', msg: '  ✗  REMOVED: E:\\Music.lnk' },
+  { delay: 3350, type: 'err', msg: '  ✗  REMOVED: E:\\Videos.lnk' },
   {
-    delay: 4000,
+    delay: 3600,
     type: 'err',
     msg: '  ✗  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs',
   },
-  { delay: 4300, type: 'ok', msg: '  ✔  File scan complete' },
-  { delay: 4700, type: 'info', msg: '▶  STEP 4 — Restoring Hidden Files & Folders' },
+  { delay: 3900, type: 'ok', msg: '  ✔  Root file scan complete' },
+  { delay: 4200, type: 'info', msg: '▶  STEP 4 — Restoring Hidden Files & Folders' },
   {
-    delay: 5000,
+    delay: 4500,
     type: 'warn',
     msg: '  ⚠  WARNING: SystemDrive C:\\ protected — skipping full root attribute reset',
   },
-  { delay: 5300, type: 'ok', msg: '  ✔  attrib -H -S /S /D on C:\\ — done' },
-  { delay: 5600, type: 'ok', msg: '  ✔  attrib -H -S /S /D on D:\\ — done' },
-  { delay: 5900, type: 'ok', msg: '  ✔  attrib -H -S /S /D on E:\\ — done' },
+  { delay: 4800, type: 'ok', msg: '  ✔  attrib -H -S /S /D on C:\\ — done' },
+  { delay: 5100, type: 'ok', msg: '  ✔  attrib -H -S /S /D on D:\\ — done' },
+  { delay: 5400, type: 'ok', msg: '  ✔  attrib -H -S /S /D on E:\\ — done' },
   {
-    delay: 6300,
+    delay: 5750,
     type: 'info',
     msg: '▶  STEP 5 — Cleaning Registry Startup Entries',
   },
   {
-    delay: 6700,
+    delay: 6100,
     type: 'err',
     msg: '  ✗  REMOVED: HKCU\\...\\Run\\HostService = ravmon.vbs',
   },
-  { delay: 7000, type: 'ok', msg: '  ✔  Registry clean complete' },
-  { delay: 7300, type: 'head', msg: '═══════════════════════════════════════' },
-  { delay: 7600, type: 'ok', msg: '  Files Removed    : 6' },
-  { delay: 7800, type: 'ok', msg: '  Drives Restored  : 3' },
-  { delay: 8000, type: 'ok', msg: '  Processes Killed : 1' },
-  { delay: 8200, type: 'ok', msg: '  Registry Cleaned : 1' },
+  { delay: 6400, type: 'ok', msg: '  ✔  Registry clean complete' },
+  { delay: 6700, type: 'head', msg: '═══════════════════════════════════════' },
+  { delay: 6950, type: 'ok', msg: '  Files Removed    : 6' },
+  { delay: 7150, type: 'ok', msg: '  Drives Restored  : 3' },
+  { delay: 7350, type: 'ok', msg: '  Processes Killed : 1' },
+  { delay: 7550, type: 'ok', msg: '  Registry Cleaned : 1' },
   {
-    delay: 8500,
+    delay: 7800,
     type: 'head',
-    msg: '  ✨  CLEANUP COMPLETE — Please Restart Your PC',
+    msg: '  ✨  FAST CLEANUP COMPLETE — Please Restart Your PC',
+  },
+];
+
+const DEEP_LOG_SEQUENCE: LogEntry[] = [
+  { delay: 300, type: 'head', msg: '╔══ SHORTCUT VIRUS REMOVER  v2.0 [DEEP HEURISTIC SCAN] ══╗' },
+  { delay: 650, type: 'info', msg: '▶  PHASE 1 — Deep Drive Discovery & Volume Enumeration' },
+  { delay: 1000, type: 'ok', msg: '  ℹ  Detected Volumes: C:\\ [NTFS, System] | D:\\ [NTFS, Local] | E:\\ [FAT32, Removable USB]' },
+  { delay: 1400, type: 'info', msg: '▶  PHASE 2 — Active Process Tree & Memory Heuristics' },
+  { delay: 1800, type: 'err', msg: '  ✗  TERMINATED: wscript.exe (PID 4892) — C:\\Users\\User\\AppData\\Roaming\\host.vbs' },
+  { delay: 2200, type: 'err', msg: '  ✗  TERMINATED: cscript.exe (PID 5120) — C:\\Users\\User\\AppData\\Local\\Temp\\helper.vbe' },
+  { delay: 2550, type: 'warn', msg: '  ⚠  WARNING: Orphaned script host mutex detected and neutralized' },
+  { delay: 2900, type: 'ok', msg: '  ✔  Process tree sanitized' },
+  { delay: 3300, type: 'info', msg: '▶  PHASE 3 — System Policy & Startup Registry Forensics' },
+  { delay: 3650, type: 'ok', msg: '  ✔  Restored DisableTaskMgr and DisableRegistryTools policies' },
+  { delay: 4000, type: 'ok', msg: '  ✔  Restored Explorer hidden and system files visibility' },
+  { delay: 4350, type: 'err', msg: '  ✗  PURGED: HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\HostService' },
+  { delay: 4700, type: 'err', msg: '  ✗  PURGED: HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\WindowsUpdateSync' },
+  { delay: 5100, type: 'info', msg: '▶  PHASE 4 — Recursive Heuristic Shortcut & desktop.ini Scan' },
+  { delay: 5500, type: 'info', msg: '  ℹ  Recursively inspecting folders across all drives via WScript.Shell...' },
+  { delay: 5900, type: 'err', msg: '  ✗  DELETED infected shortcut: E:\\Photos\\Family.lnk -> wscript.exe //e:VBScript' },
+  { delay: 6300, type: 'err', msg: '  ✗  DELETED infected shortcut: E:\\Work\\Quarterly.lnk -> cmd.exe /c start ravmon.vbs' },
+  { delay: 6700, type: 'err', msg: '  ✗  DELETED infected shortcut: D:\\Projects\\Source.lnk -> wscript.exe host.vbs' },
+  { delay: 7100, type: 'err', msg: '  ✗  REMOVED malicious desktop.ini: E:\\Photos\\desktop.ini [IconArea script trigger]' },
+  { delay: 7500, type: 'err', msg: '  ✗  REMOVED malicious desktop.ini: D:\\Projects\\desktop.ini [FolderIcon hijack]' },
+  { delay: 7900, type: 'warn', msg: '  ⚠  WARNING: 6 system-locked files skipped safely without modification' },
+  { delay: 8300, type: 'ok', msg: '  ✔  Deep inspection finished: 2,140 files checked across 428 directories' },
+  { delay: 8700, type: 'info', msg: '▶  PHASE 5 — Root Autorun & Worm Executable Neutralization' },
+  { delay: 9050, type: 'err', msg: '  ✗  REMOVED: E:\\autorun.inf' },
+  { delay: 9400, type: 'err', msg: '  ✗  REMOVED: E:\\USB Disk.exe (Packed worm binary)' },
+  { delay: 9750, type: 'err', msg: '  ✗  REMOVED: C:\\Users\\User\\AppData\\Roaming\\ravmon.vbs' },
+  { delay: 10100, type: 'info', msg: '▶  PHASE 6 — Unhiding & Nameless Folder Content Extraction' },
+  { delay: 10500, type: 'ok', msg: '  ✔  Restored 84 hidden items from nameless directory on E:\\ to root' },
+  { delay: 10900, type: 'ok', msg: '  ✔  attrib -h -r -s /s /d applied to USB drive E:\\' },
+  { delay: 11250, type: 'ok', msg: '  ✔  attrib -h -r -s /s /d applied to Data drive D:\\' },
+  { delay: 11600, type: 'warn', msg: '  ⚠  WARNING: C:\\ protected; recursive attribute reset skipped to avoid OS file disruption' },
+  { delay: 12000, type: 'head', msg: '═══════════════════════════════════════' },
+  { delay: 12250, type: 'ok', msg: '  Shortcuts Inspected  : 2,140' },
+  { delay: 12450, type: 'ok', msg: '  Malicious .lnk Purged: 5' },
+  { delay: 12650, type: 'ok', msg: '  desktop.ini Sanitized: 2' },
+  { delay: 12850, type: 'ok', msg: '  Worm Payloads Erased : 4' },
+  { delay: 13050, type: 'ok', msg: '  Processes Terminated : 2' },
+  { delay: 13250, type: 'ok', msg: '  Registry Run Fixed   : 2' },
+  { delay: 13450, type: 'ok', msg: '  Drives Restored      : 3' },
+  {
+    delay: 13750,
+    type: 'head',
+    msg: '  ✨  DEEP SCAN COMPLETE — All Subfolders & Registry Fully Sanitized!',
   },
 ];
 
@@ -89,13 +137,14 @@ export const App: React.FC = () => {
   const [scanning, setScanning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [statusText, setStatusText] = useState('Idle');
+  const [scanMode, setScanMode] = useState<ScanMode>('fast');
   const [filter, setFilter] = useState<FilterType>('all');
   const [logs, setLogs] = useState<DisplayedLog[]>([
     {
       id: 0,
       time: '17:41:00',
       type: 'info',
-      msg: '▶ Ready. Press "Run Demo Scan" to simulate cleanup.',
+      msg: '▶ Ready. Fast Mode (default) selected. Press "Run Demo Scan" to simulate cleanup.',
     },
   ]);
   const [hasScanned, setHasScanned] = useState(false);
@@ -144,6 +193,27 @@ export const App: React.FC = () => {
     return `${hh}:${mm}:${ss}`;
   };
 
+  const handleModeChange = (newMode: ScanMode) => {
+    if (scanning || newMode === scanMode) return;
+    setScanMode(newMode);
+
+    // If not currently running or displaying scan results, update the prompt
+    if (!hasScanned) {
+      const now = new Date();
+      setLogs([
+        {
+          id: 0,
+          time: formatTimestamp(now),
+          type: 'info',
+          msg:
+            newMode === 'deep'
+              ? '▶ Ready. Deep Mode selected (slower, recursive subfolder heuristics). Press "Run Demo Scan".'
+              : '▶ Ready. Fast Mode (default) selected. Press "Run Demo Scan" to simulate cleanup.',
+        },
+      ]);
+    }
+  };
+
   const runDemoScan = () => {
     if (scanning) return;
 
@@ -153,17 +223,18 @@ export const App: React.FC = () => {
 
     setScanning(true);
     setProgress(0);
-    setStatusText('Scanning...');
+    setStatusText(scanMode === 'deep' ? 'Deep Scanning...' : 'Fast Scanning...');
     setLogs([]);
 
     const now = new Date();
-    const total = DEMO_LOG_SEQUENCE.length;
+    const activeSequence = scanMode === 'deep' ? DEEP_LOG_SEQUENCE : FAST_LOG_SEQUENCE;
+    const total = activeSequence.length;
 
-    DEMO_LOG_SEQUENCE.forEach((entry, i) => {
+    activeSequence.forEach((entry, i) => {
       const timerId = window.setTimeout(() => {
         const pct = Math.round(((i + 1) / total) * 100);
         setProgress(pct);
-        setStatusText(pct < 100 ? `${pct}% complete` : 'Done!');
+        setStatusText(pct < 100 ? `${scanMode === 'deep' ? 'Deep ' : ''}${pct}% complete` : 'Done!');
 
         const entryTime = new Date(now.getTime() + entry.delay);
         const timeStr = formatTimestamp(entryTime);
@@ -201,12 +272,14 @@ export const App: React.FC = () => {
     const now = new Date();
     const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
     const filterLabel = filter === 'all' ? 'ALL LOGS' : `${filter.toUpperCase()} ONLY`;
+    const modeLabel = scanMode === 'deep' ? 'DEEP HEURISTIC SCAN' : 'FAST SCAN (DEFAULT)';
 
     let content = `╔═══════════════════════════════════════════════════════════════════╗\r\n`;
     content += `║         SHORTCUT VIRUS REMOVER — SCAN LOG EXPORT REPORT           ║\r\n`;
     content += `╚═══════════════════════════════════════════════════════════════════╝\r\n\r\n`;
     content += `Generated On   : ${dateStr}\r\n`;
     content += `Engine Version : PowerShell Engine v2.0\r\n`;
+    content += `Scanning Mode  : ${modeLabel}\r\n`;
     content += `Active Filter  : ${filterLabel} (${filteredLogs.length} entries)\r\n`;
     content += `Total Logs Run : ${logs.length} entries\r\n\r\n`;
     content += `═════════════════════════════════════════════════════════════════════\r\n`;
@@ -219,10 +292,10 @@ export const App: React.FC = () => {
     });
 
     content += `═════════════════════════════════════════════════════════════════════\r\n`;
-    content += `[✓] End of ShortcutVirusRemover scan log export.\r\n`;
+    content += `[✓] End of ShortcutVirusRemover ${scanMode.toUpperCase()} scan log export.\r\n`;
 
     const dateSlug = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
-    const fileName = `ShortcutVirusRemover_Log_${filter}_${dateSlug}.txt`;
+    const fileName = `ShortcutVirusRemover_Log_${scanMode}_${filter}_${dateSlug}.txt`;
     downloadFile(fileName, content, 'text/plain;charset=utf-8');
 
     setExportedNotice(true);
@@ -438,8 +511,37 @@ export const App: React.FC = () => {
               onClick={runDemoScan}
               disabled={scanning}
             >
-              {scanning ? '⏳ Scanning...' : hasScanned ? '▶ Run Again' : '▶ Run Demo Scan'}
+              {scanning
+                ? scanMode === 'deep'
+                  ? '⏳ Deep Scanning...'
+                  : '⏳ Fast Scanning...'
+                : hasScanned
+                ? '▶ Run Again'
+                : '▶ Run Demo Scan'}
             </button>
+
+            <div className="scan-mode-selector" role="group" aria-label="Scanning mode">
+              <span className="scan-mode-label">Mode:</span>
+              <button
+                type="button"
+                className={`scan-mode-btn ${scanMode === 'fast' ? 'active' : ''}`}
+                onClick={() => handleModeChange('fast')}
+                disabled={scanning}
+                title="Fast Scan (default): Rapid scan of drive roots, startup entries, and malware processes (~8s)"
+              >
+                ⚡ Fast
+              </button>
+              <button
+                type="button"
+                className={`scan-mode-btn ${scanMode === 'deep' ? 'active deep' : ''}`}
+                onClick={() => handleModeChange('deep')}
+                disabled={scanning}
+                title="Deep Scan: Thorough recursive scan of all subfolders, desktop.ini triggers, and shortcut targets (~14s)"
+              >
+                🔎 Deep
+              </button>
+            </div>
+
             <div className="progress-bar">
               <div
                 className="progress-fill"
